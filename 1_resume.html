@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>이 력 서</title>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <table class="headTable">
+          <tr>
+            <td class="headTableName">이 력 서</td>
+            <td>
+              <fieldset>
+                <div>
+                  지원구분 : 신입<input type="radio" name="career" checked /> 경력<input
+                    type="radio"
+                    name="career"
+                  />
+                </div>
+                <div>지원부분 : <input type="text" /></div>
+                <div>희망연봉 : <input type="number" min="2700" max="5000" /> 만원</div>
+              </fieldset>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div>
+        <!-- 사진이랑 개인정보 부분 -->
+      </div>
+
+      <div class="mainInfo">
+        <table>
+          <tr>
+            <th class="mainInfoFirst" rowspan="4">학 <br />력 <br />사 <br />항</th>
+            <th>졸 업 일</th>
+            <th>학교명</th>
+            <th>전 공</th>
+            <th>졸업여부</th>
+            <th>소재지</th>
+            <th>성 적</th>
+          </tr>
+          <tr>
+            <td><input type="text" />고등학교</td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+          </tr>
+          <tr>
+            <td><input type="text" />대학교</td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+          </tr>
+          <tr>
+            <td><input type="text" />대학원</td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <th class="mainInfoFirst" rowspan="4">경 <br />력 <br />사 <br />항</th>
+            <th>근무기간</th>
+            <th>회사명</th>
+            <th>직위</th>
+            <th>담당업무</th>
+          </tr>
+          <tr>
+            <td><input type="date" />~<input type="date" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+          </tr>
+          <tr>
+            <td><input type="date" />~<input type="date" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+          </tr>
+          <tr>
+            <td><input type="date" />~<input type="date" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <th class="mainInfoFirst" rowspan="2">병 <br />역 <br />사<br />항<br /></th>
+            <th>군 필 여 부</th>
+            <td>
+              군필<input type="radio" name="army" checked /> 미필<input
+                type="radio"
+                name="army"
+              />면제<input type="radio" name="army" /> 기타<input type="radio" name="army" />
+            </td>
+            <th>군 별</th>
+            <td>
+              <select name="armyList">
+                <option selected>육군</option>
+                <option>해군</option>
+                <option>공군</option>
+                <option>해병대</option>
+                <option>특전사</option>
+                <option>공익</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>복 무 기 간</th>
+            <td>입대 : <input type="date" /> ~ 전역 : <input type="date" /></td>
+            <th>계 급</th>
+            <td>
+              <select name="rank">
+                <option selected>병장</option>
+                <option>전문하사</option>
+                <option>장교</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <th class="mainInfoFirst" rowspan="5">가<br />족<br />관<br />계</th>
+            <th>관 계</th>
+            <th>성 명</th>
+            <th>생년월일</th>
+            <th>직 업</th>
+            <th>휴 대 폰</th>
+          </tr>
+          <tr>
+            <td>
+              <select name="family">
+                <option>부</option>
+                <option>모</option>
+                <option>자녀</option>
+                <option>형제</option>
+                <option>배우자</option>
+              </select>
+            </td>
+
+            <td><input type="text" /></td>
+            <td><input type="date" /></td>
+            <td><input type="text" /></td>
+            <td><input type="tel" placeholder="010-1234-1234" /></td>
+          </tr>
+          <tr>
+            <td>
+              <select name="family">
+                <option>부</option>
+                <option>모</option>
+                <option>자녀</option>
+                <option>형제</option>
+                <option>배우자</option>
+              </select>
+            </td>
+
+            <td><input type="text" /></td>
+            <td><input type="date" /></td>
+            <td><input type="text" /></td>
+            <td><input type="tel" placeholder="010-1234-1234" /></td>
+          </tr>
+          <tr>
+            <td>
+              <select name="family">
+                <option>부</option>
+                <option>모</option>
+                <option>자녀</option>
+                <option>형제</option>
+                <option>배우자</option>
+              </select>
+            </td>
+
+            <td><input type="text" /></td>
+            <td><input type="date" /></td>
+            <td><input type="text" /></td>
+            <td><input type="tel" placeholder="010-1234-1234" /></td>
+          </tr>
+          <tr>
+            <td>
+              <select name="family">
+                <option>부</option>
+                <option>모</option>
+                <option>자녀</option>
+                <option>형제</option>
+                <option>배우자</option>
+              </select>
+            </td>
+
+            <td><input type="text" /></td>
+            <td><input type="date" /></td>
+            <td><input type="text" /></td>
+            <td><input type="tel" placeholder="010-1234-1234" /></td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <th class="mainInfoFirst" rowspan="6">기<br />타<br />사<br />항</th>
+            <th>신 장</th>
+            <td><input type="number" min="120" max="250" value="160" />cm</td>
+            <th>체 중</th>
+            <td><input type="number" min="30" max="300" value="60" />kg</td>
+            <th>시 력</th>
+            <td>
+              <input type="number" min="-3" max="3" step="0.1" value="0" /> /
+              <input type="number" min="-3" max="3" step="0.1" value="0" />
+            </td>
+          </tr>
+          <tr>
+            <th>취 미</th>
+            <td><input type="text" placeholder="ex) 야구" /></td>
+            <th>특 기</th>
+            <td><input type="text" placeholder="ex) 코딩" /></td>
+            <th>종 교</th>
+            <td>
+              <select name="religion">
+                <option selected>무교</option>
+                <option>불교</option>
+                <option>기독교</option>
+                <option>힌두교</option>
+                <option>이슬람교</option>
+                <option>기타</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th rowspan="4">자 격 증</th>
+            <th colspan="2">자격명</th>
+            <th colspan="2">취득일자</th>
+            <th>발급기관</th>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="text" placeholder="ex)정보처리기사" /></td>
+            <td colspan="2"><input type="date" /></td>
+            <td><input type="text" placeholder="ex)한국산업인력공단" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="text" placeholder="ex)정보처리기사" /></td>
+            <td colspan="2"><input type="date" /></td>
+            <td><input type="text" placeholder="ex)한국산업인력공단" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="text" placeholder="ex)정보처리기사" /></td>
+            <td colspan="2"><input type="date" /></td>
+            <td><input type="text" placeholder="ex)한국산업인력공단" /></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <h4>상기 내용은 사실과 다름없음을 확인합니다.</h4>
+        <h5>작성자 : <input type="text" /> (인)</h5>
+      </div>
+    </div>
+  </body>
+</html>

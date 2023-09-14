@@ -1,0 +1,50 @@
+.container {
+  max-width: 800px;
+  border: 1px solid black;
+}
+
+.headTable {
+  width: 100%;
+}
+
+.headTableName {
+  width: 60%;
+  font-size: 50px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+table {
+  width: 100%;
+}
+
+table,
+tr,
+th,
+td {
+  border: 1px solid black;
+  white-space: nowrap;
+}
+
+th {
+  background-color: lightgrey;
+}
+.mainInfo {
+  text-align: center;
+}
+.mainInfoFirst {
+  width: 40px;
+}
+
+input {
+  max-width: 80px;
+  white-space: nowrap;
+}
+
+h4 {
+  text-align: center;
+}
+h5 {
+  text-align: right;
+  padding-right: 10px;
+}
