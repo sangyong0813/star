@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>다양한 input type들</title>
+  </head>
+  <body>
+    <form action="13-1.result.html">
+      <fieldset>
+        <legend>로그인</legend>
+        <div>
+          아이디 :
+          <input
+            type="text"
+            name="userId"
+            placeholder="아이디를 입력하세요..."
+            maxlength="4"
+            autocomplete="off"
+            autofocus
+            required
+          />
+        </div>
+
+        <div>
+          비밀번호 :
+          <input type="password" name="userPw" placeholder="비밀번호를 입력하세요..." />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>메모</legend>
+        <!-- 대량의 문자열을 입력받는 도구 -->
+        <div><textarea name="memo" cols="30" rows="3"></textarea></div>
+      </fieldset>
+
+      <div>
+        <fieldset>
+          <legend>좋아하는 음식</legend>
+          <!-- 다중 선택 가능 -->
+          <input type="checkbox" name="favoriteFood" value="jjajang" /> 짜장면
+          <input type="checkbox" name="favoriteFood" value="pho" /> 쌀국수
+          <input type="checkbox" name="favoriteFood" value="kimchi" /> 김치찌개
+        </fieldset>
+      </div>
+
+      <div>
+        <fieldset>
+          <!-- 취미 선택 -->
+          <legend>취미</legend>
+          <input type="checkbox" name="hobby" value="baseball" /> 야구
+          <input type="checkbox" name="hobby" value="movie" /> 영화
+          <input type="checkbox" name="hobby" value="game" /> 게임
+        </fieldset>
+      </div>
+
+      <div>
+        <fieldset>
+          <!-- 단일 선택 가능 (name속성의 값을 맞춰 주어야 한가지만 선택 가능) -->
+          <legend>성별</legend>
+          <input type="radio" name="gender" value="female" checked /> 여성
+          <input type="radio" name="gender" value="male" /> 남성
+        </fieldset>
+      </div>
+
+      <div>
+        <fieldset>
+          <legend>통신사</legend>
+          <select name="comm" id="" size="3">
+            <option value="kt">KT</option>
+            <option value="skt">SKT</option>
+            <option value="lgu">LGU+</option>
+            <option value="kt1">KT1</option>
+            <option value="skt2">SKT2</option>
+            <option value="lgu3">LGU+3</option>
+          </select>
+        </fieldset>
+      </div>
+
+      <div>
+        <fieldset>
+          <legend>생년월일</legend>
+          <input type="date" name="birth" / min="2022-01-01" max="2023-12-31">
+        </fieldset>
+      </div>
+
+      <div>
+        <fieldset>
+          <legend>이메일</legend>
+          <input type="email" name="userEmail" />
+        </fieldset>
+      </div>
+
+      <div>
+        <fieldset>
+          <legend>파일</legend>
+          <input type="file" name="userFile" />
+        </fieldset>
+      </div>
+
+      <div>
+        <fieldset>
+          <legend>좋아하는 색상</legend>
+          <input type="color" name="userColor" />
+        </fieldset>
+      </div>
+
+      <div>
+        <fieldset>
+          <legend>나이</legend>
+          <input type="number" name="age" min="0" max="100" />
+        </fieldset>
+      </div>
+
+      <div>
+        <fieldset>
+          <legend>희망 연봉</legend>
+          <input type="range" name="annualsak" min="2700" max="10000" step="100" />
+        </fieldset>
+      </div>
+
+      <div>
+        <fieldset>
+          <legend>숨겨진 값</legend>
+          <input type="hidden" name="hidenValue" value="10" />
+        </fieldset>
+      </div>
+
+      <br />
+      <button type="submit">전송</button>
+      <button type="reset">취소</button>
+    </form>
+  </body>
+</html>

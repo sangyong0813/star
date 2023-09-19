@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Item List</title>
+    <style>
+      .container {
+        width: 960px;
+        margin: 0 auto;
+      }
+
+      ul li {
+        margin: 15px;
+      }
+
+      li.newItem::after {
+        /* ::after 뒤에 추가할 때 */
+        content: "NEW";
+        font-size: x-small;
+        padding: 2px 4px;
+        margin: 0 10px;
+        background-color: red;
+        color: white;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Item List</h1>
+      <ul>
+        <li class="newItem">Item 1</li>
+        <li>Item 2</li>
+        <li class="newItem">Item 3</li>
+        <li>Item 4</li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -2,9 +2,19 @@
   max-width: 800px;
   border: 1px solid black;
 }
+.imgTable {
+  width: 160px;
+}
+
+.userPic {
+  width: 150px;
+  height: 160px;
+  margin: 5px;
+  border: 1px solid black;
+}
 
 .headTable {
-  width: 100%;
+  max-width: 100%;
 }
 
 .headTableName {
@@ -14,8 +24,16 @@
   font-weight: bolder;
 }
 
+input[type="text"] {
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
 table {
   width: 100%;
+  table-layout: fixed;
 }
 
 table,
@@ -33,12 +51,8 @@ th {
   text-align: center;
 }
 .mainInfoFirst {
+  min-width: 40px;
   width: 40px;
-}
-
-input {
-  max-width: 80px;
-  white-space: nowrap;
 }
 
 h4 {

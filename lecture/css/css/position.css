@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#contents {
+  background: url(../pic/kiwoom.jpg) no-repeat;
+  width: 1000px;
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+h1 {
+  color: aliceblue;
+  font-size: 50px;
+  font-style: italic;
+  position: absolute;
+  bottom: 160px;
+  right: 40px;
+}
+
+h2 {
+  color: hotpink;
+  font-size: 30px;
+  position: absolute;
+  bottom: 120px;
+  right: 30px;
+  font-style: italic;
+}

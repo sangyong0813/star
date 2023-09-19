@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>테이블 태그</title>
+    <style>
+      /* tr > td {
+        border: 2px solid black;
+        padding: 5px;
+        text-align: center;
+      } */
+
+      caption {
+        border: 2px solid black;
+        padding: 5px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>4행 3열 표를 만들어 봅시다.</h4>
+    <table border="1">
+      <!-- 1행 -->
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <!-- 2행 -->
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+      <!-- 3행 -->
+      <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+      <!-- 4행 -->
+      <tr>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+      </tr>
+    </table>
+
+    <h4>3행 4열 표를 만들어 봅시다.</h4>
+    <!-- 컬럼을 병합할 때 : colspan = "합쳐질 컬럼의 수" -->
+    <!-- 행을 병합할 때 : rowspan = "합쳐질 행의 수"를 td 속성에 쓴다. -->
+    <table>
+      <!-- 1행 -->
+      <tr>
+        <td colspan="2">1</td>
+        <!-- <td>2</td> -->
+        <td>3</td>
+        <td>4</td>
+      </tr>
+      <!-- 2행 -->
+      <tr>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td rowspan="2">8</td>
+      </tr>
+      <!-- 3행 -->
+      <tr>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <!-- <td>12</td> -->
+      </tr>
+    </table>
+
+    <h4>8행 4열 표를만들어 봅시다.</h4>
+    <table>
+      <!-- 1행 -->
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td colspan="2" style="background-color: yellowgreen">3</td>
+        <!-- <td>4</td> -->
+      </tr>
+      <!-- 2행 -->
+      <tr>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+      <!-- 3행 -->
+      <tr>
+        <td>9</td>
+        <td rowspan="3" style="background-color: yellowgreen">10</td>
+        <td>11</td>
+        <td>12</td>
+      </tr>
+      <!-- 4행 -->
+      <tr>
+        <td>13</td>
+        <!-- <td>14</td> -->
+        <td>15</td>
+        <td>16</td>
+      </tr>
+      <!-- 5행 -->
+      <tr>
+        <td>17</td>
+        <!-- <td>18</td> -->
+        <td>19</td>
+        <td>20</td>
+      </tr>
+      <!-- 6행 -->
+      <tr>
+        <td>21</td>
+        <td>22</td>
+        <td>23</td>
+        <td>24</td>
+      </tr>
+      <!-- 7행 -->
+      <tr>
+        <td>25</td>
+        <td colspan="2" style="background-color: yellowgreen">26</td>
+        <!-- <td>27</td> -->
+        <td>28</td>
+      </tr>
+      <!-- 8행 -->
+      <tr>
+        <td>29</td>
+        <td>30</td>
+        <td>31</td>
+        <td>32</td>
+      </tr>
+    </table>
+
+    <h4>주소록 만들기</h4>
+    <table>
+      <caption>
+        goott5 주소록
+      </caption>
+      <thead class="thead">
+        <th>이름</th>
+        <th>전화번호</th>
+        <th>주소</th>
+        <th>사진</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>김김김</td>
+          <td>010-1234-5678</td>
+          <td>서울 구로구</td>
+          <td><img src="pic/person.png" alt="사진" width="50" /></td>
+        </tr>
+        <tr>
+          <td>이이이</td>
+          <td>010-1234-5678</td>
+          <td>서울 구로구</td>
+          <td><img src="pic/person.png" alt="사진" width="50" /></td>
+        </tr>
+        <tr>
+          <td>박박박</td>
+          <td>010-1234-5678</td>
+          <td>서울 구로구</td>
+          <td><img src="pic/person.png" alt="사진" width="50" /></td>
+        </tr>
+        <tr>
+          <td>문문문</td>
+          <td>010-1234-5678</td>
+          <td>서울 구로구</td>
+          <td><img src="pic/person.png" alt="사진" width="50" /></td>
+        </tr>
+        <tr>
+          <td>서서서</td>
+          <td>010-1234-5678</td>
+          <td>서울 구로구</td>
+          <td><img src="pic/person.png" alt="사진" width="50" /></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>프로필 만들기</h4>
+    <caption>
+      <b>유재석</b
+      ><br />
+      MC, 개그맨
+    </caption>
+    <table>
+      <thead>
+        <th>프로필</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>출생</td>
+          <td>1972.8.14. 서울특별시</td>
+          <td rowspan="6"><img src="pic/jseok.jpg" width="200"</td>
+        </tr>
+        <tr>
+          <td>소속사</td>
+          <td>안테나</td>
+        </tr>
+        <tr>
+          <td>가족</td>
+          <td>배우자 나경은</td>
+        </tr>
+        <tr>
+          <td>데뷔</td>
+          <td>1991년 제 1회 KBS 대학개그제</td>
+        </tr>
+        <tr>
+          <td>수상</td>
+          <td>
+            2021년 제57회 백상예술대상 TV부문 대상 <br />
+            2020년 MBC 방송연예대상 대상 (놀면 뭐하니?)
+          </td>
+        </tr>
+        <tr>
+          <td>작품</td>
+          <td>방송, 앨범, 곡, 영화, 기타</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table border="1">
+      <caption>
+        테이블 A
+      </caption>
+      <colgroup>
+        <col style="background-color: coral" />
+        <col />
+        <col style="width: 150px" />
+      </colgroup>
+      <tr>
+        <th>1행 1열</th>
+        <td>1행 2열</td>
+        <td>1행 3열</td>
+      </tr>
+      <tr>
+        <th>2행 1열</th>
+        <td>2행 2열</td>
+        <td>2행 3열</td>
+      </tr>
+      <tr>
+        <th>3행 1열</th>
+        <td>3행 2열</td>
+        <td>3행 3열</td>
+      </tr>
+    </table>
+  </body>
+</html>

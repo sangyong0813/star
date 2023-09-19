@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>속성 선택자</title>
+    <style>
+      a[target="_blank"] {
+        /* a태그 안에 target 속성에 스타일을 준다 */
+        font-weight: bold;
+        font-size: 50px;
+        color: cadetblue;
+        background: url(pic/webicon.png) left;
+      }
+
+      a[class] {
+        color: crimson;
+        box-shadow: 5px 5px 6px cornflowerblue;
+      }
+
+      a[class~="flat"] {
+        /* a태그의 class 속성 값 중에서 flat 단어가 포함되어 있는 요소 */
+        font-size: 50px;
+      }
+
+      a[class^="bu"] {
+        /* bu로 시작하는 요소 */
+        color: dodgerblue;
+        background-color: lightcoral;
+      }
+
+      a[class$="ry"] {
+        /* 속성 값으로 끝나는 요소 */
+        text-decoration: none;
+      }
+
+      a[class|="cl"] {
+        /* 지정한 속성 값이 포함된 요소 */
+        background-color: darkcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WEB의 프론트 기술</h1>
+    <ul class="firstUl">
+      <li><a href="https://namu.wiki/w/HTML" class="flat">HTML</a></li>
+      <li><a href="https://namu.wiki/w/CSS" target="_blank">CSS</a></li>
+      <li><a href="https://namu.wiki/w/JavaScript" class="button">JavaScript</a></li>
+      <li><a href="https://namu.wiki/w/jQuery" class="very">JQuery</a></li>
+      <li>
+        <a
+          href="https://namu.wiki/w/AJAX(%EC%A0%95%EB%B3%B4%20%EA%B5%90%ED%99%98%20%EA%B8%B0%EB%B2%95)?from=AJAX"
+          class="flat"
+          >Ajax</a
+        >
+      </li>
+      <li><a href="#" class="cl-name">clName</a></li>
+    </ul>
+
+    <ul>
+      <li>
+        <input type="radio" id="halfSub" name="subway" checked />
+        <label for="halfSub">서브웨이 half</label>
+      </li>
+      <li>
+        <input type="radio" id="footLongSub" name="subway" />
+        <label for="footLongSub">서브웨이 foot Long</label>
+      </li>
+    </ul>
+  </body>
+</html>

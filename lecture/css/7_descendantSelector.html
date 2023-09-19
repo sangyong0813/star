@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자손 선택자</title>
+    <style>
+      div {
+        border: 1px solid darkgreen;
+      }
+
+      .secondDiv p {
+        background-color: darkorange;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>자손 (하위) 선택자</h1>
+    <p>자손 선택자로 스타일을 꾸미면 어떻게 될까요?</p>
+    <div>
+      <p>div 내부 p 태그</p>
+      <p>div 내부 p 태그</p>
+      <p>div 내부 p 태그</p>
+    </div>
+    <p>div 외부 p 태그</p>
+    <div class="secondDiv">
+      <p>div 내부 p 태그</p>
+      <p>div 내부 p 태그</p>
+      <p>div 내부 p 태그</p>
+      <h2>
+        <p>두번쨰 div의 자식 h2 태그의 자식</p>
+      </h2>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이 력 서</title>
+
+    <style>
+      .container {
+        max-width: 800px;
+        border: 1px solid black;
+        padding: 5px;
+      }
+      tr,
+      td {
+        border: 1px solid black;
+        text-align: center;
+      }
+      th {
+        border: 1px solid black;
+        padding: 3px;
+      }
+
+      table {
+        table-layout: fixed;
+        width: 100%;
+      }
+      .main {
+        border: 2px solid black;
+      }
+      .topTable {
+        border: 2px solid black;
+      }
+
+      .headTable tr td {
+        border: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <table class="headTable">
+          <!-- <col style="width: 500px" />
+          <col style="width: 80px" />
+          <col style="width: 60px" />
+          <col style="width: 60px" /> -->
+          <tr>
+            <td rowspan="3" style="font-weight: bold; font-size: 50px; text-align: center">
+              이 력 서
+            </td>
+            <td>지원구분 :</td>
+            <td>신입<input type="radio" name="newOld" checked /></td>
+            <td>경력<input type="radio" name="newOld" /></td>
+          </tr>
+          <tr>
+            <td>지원부분 :</td>
+            <td colspan="2"><input type="text" style="max-width: 90%" /></td>
+          </tr>
+          <tr>
+            <td>희망연봉 :</td>
+            <td></td>
+            <td style="text-align: right">만원</td>
+          </tr>
+        </table>
+      </div>
+      <div class="topTable">
+        <table>
+          <col style="width: 150px" />
+          <col style="width: 80px; background-color: lightgrey" />
+          <col style="width: 200px" />
+          <col style="width: 80px; background-color: lightgrey" />
+          <col style="width: 190px" />
+          <tr>
+            <td rowspan="3">
+              <img src="pic/person.png" style="width: 150px; height: 160px" alt="사진" />
+            </td>
+            <th rowspan="2">성명</th>
+            <td style="text-align: left">&nbsp;(한글)</td>
+            <th>생년월일</th>
+            <td></td>
+          </tr>
+          <tr>
+            <td style="text-align: left">&nbsp;(영문)</td>
+            <th>휴대폰</th>
+            <td></td>
+          </tr>
+
+          <tr>
+            <th>현주소</th>
+            <td></td>
+            <th>이메일</th>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      <br />
+      <div class="main">
+        <div>
+          <table>
+            <col style="width: 60px" />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+
+            <tr style="background-color: lightgrey">
+              <th rowspan="5" style="height: 150px">학<br />력<br />사<br />항</th>
+              <th style="height: 20px">졸 업 일</th>
+              <th>학교명</th>
+              <th>전 공</th>
+              <th>졸업여부</th>
+              <th>소재지</th>
+              <th>성 적</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+
+        <div>
+          <table>
+            <col style="width: 60px" />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <tr style="background-color: lightgrey">
+              <th rowspan="5" style="height: 100px">경<br />력<br />사<br />항</th>
+              <th style="height: 20px">근무 기간</th>
+              <th>회사명</th>
+              <th>직 위</th>
+              <th>담 당 업 무</th>
+              <th>퇴사사유</th>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+
+        <div>
+          <table>
+            <col style="width: 60px; background-color: lightgrey" />
+            <col style="background-color: lightgrey" />
+            <col style="width: 300px" />
+            <col style="background-color: lightgrey" />
+            <col style="width: 100px" />
+            <tr>
+              <th rowspan="2">병<br />역<br />사<br />항</th>
+              <th>군 필 여 부</th>
+              <td>
+                군필<input type="checkbox" />, 미필<input type="checkbox" />, 면제<input
+                  type="checkbox"
+                />, 기타<input type="checkbox" />
+              </td>
+              <th>군 별</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>복 무 기 간</th>
+              <td></td>
+              <th>계 급</th>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+
+        <div>
+          <table>
+            <col style="width: 60px" />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+
+            <tr style="background-color: lightgrey">
+              <th rowspan="5" style="height: 150px">가<br />족<br />관<br />계</th>
+              <th style="height: 20px">관 계</th>
+              <th>성 명</th>
+              <th>생년월일</th>
+              <th>학 력</th>
+              <th>직업</th>
+              <th>직장명</th>
+              <th>직 위</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+
+        <div>
+          <table>
+            <col style="width: 60px; background-color: lightgrey" />
+            <col style="background-color: lightgray" />
+            <col style="width: 120px" />
+            <col />
+            <col style="width: 120px" />
+            <col />
+            <col style="width: 120px" />
+            <tr>
+              <th rowspan="6" style="height: 150px">기<br />타<br />사<br />항</th>
+              <th>신 장</th>
+              <td style="text-align: right">cm&nbsp;&nbsp;</td>
+              <th style="background-color: lightgray">체 중</th>
+              <td style="text-align: right">kg&nbsp;&nbsp;</td>
+              <th style="background-color: lightgray">시 력</th>
+              <td>/</td>
+            </tr>
+            <tr>
+              <th style="background-color: lightgray">취 미</th>
+              <td></td>
+              <th style="background-color: lightgray">특 기</th>
+              <td></td>
+              <th style="background-color: lightgray">종 교</th>
+              <td></td>
+            </tr>
+            <tr style="background-color: lightgray">
+              <th rowspan="4" style="height: 100px">전산능력</th>
+              <th style="height: 20px">프로그램명</th>
+              <th>활용도</th>
+              <th colspan="3">자격증보유현황</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td colspan="3"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td colspan="3"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td colspan="3"></td>
+            </tr>
+          </table>
+        </div>
+        <div>
+          <h4 style="text-align: center">상기 내용은 사실과 다름없음을 확인합니다.</h4>
+          <h5 style="text-align: center">
+            년 &nbsp;&nbsp;&nbsp;&nbsp;월 &nbsp;&nbsp;&nbsp;&nbsp;일
+          </h5>
+          <h5 style="text-align: right">
+            작 성 자 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(인)&nbsp;&nbsp;
+          </h5>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

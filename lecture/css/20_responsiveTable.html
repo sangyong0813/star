@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 100%;
+        overflow-x: auto; /*가로 스크롤바가 생성*/
+        height: 100px;
+      }
+      #score-box {
+        border: 3px solid black;
+        width: 960px;
+        border-collapse: collapse;
+        text-align: center;
+      }
+
+      #score-box caption {
+        background-color: lightseagreen;
+        font-size: larger;
+      }
+
+      #score-box th,
+      td {
+        border: 1px solid black;
+      }
+
+      #score-box thead {
+        background-color: aqua;
+        position: sticky;
+        top: 0px;
+      }
+      .box {
+        width: 100%;
+        background-color: crimson;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+*caption : 성적표
+*학번, 이름, 국어, 영어, 수학, 물리, 화학, 지리, 국사, 음악, 체육
+ 총점 , 평균, 등수
+*230918 홍길동 80 81 80 .....
+   -->
+    <div class="container">
+      <table id="score-box">
+        <caption>
+          성 적 표
+        </caption>
+        <thead>
+          <th>학번</th>
+          <th>이름</th>
+          <th>국어</th>
+          <th>영어</th>
+          <th>수학</th>
+          <th>물리</th>
+          <th>화학</th>
+          <th>지리</th>
+          <th>국사</th>
+          <th>음악</th>
+          <th>체육</th>
+          <th>총점</th>
+          <th>평균</th>
+          <th>등수</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>230918</td>
+            <td>홍길동</td>
+            <td>80</td>
+            <td>81</td>
+            <td>83</td>
+            <td>85</td>
+            <td>80</td>
+            <td>90</td>
+            <td>92</td>
+            <td>86</td>
+            <td>88</td>
+            <td>765</td>
+            <td>85</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>230919</td>
+            <td>박박박</td>
+            <td>91</td>
+            <td>94</td>
+            <td>86</td>
+            <td>80</td>
+            <td>83</td>
+            <td>90</td>
+            <td>92</td>
+            <td>88</td>
+            <td>80</td>
+            <td>784</td>
+            <td>87</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>230920</td>
+            <td>김김김</td>
+            <td>90</td>
+            <td>91</td>
+            <td>83</td>
+            <td>97</td>
+            <td>88</td>
+            <td>92</td>
+            <td>80</td>
+            <td>94</td>
+            <td>86</td>
+            <td>801</td>
+            <td>89</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>230920</td>
+            <td>김김김</td>
+            <td>90</td>
+            <td>91</td>
+            <td>83</td>
+            <td>97</td>
+            <td>88</td>
+            <td>92</td>
+            <td>80</td>
+            <td>94</td>
+            <td>86</td>
+            <td>801</td>
+            <td>89</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>230920</td>
+            <td>김김김</td>
+            <td>90</td>
+            <td>91</td>
+            <td>83</td>
+            <td>97</td>
+            <td>88</td>
+            <td>92</td>
+            <td>80</td>
+            <td>94</td>
+            <td>86</td>
+            <td>801</td>
+            <td>89</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>230920</td>
+            <td>김김김</td>
+            <td>90</td>
+            <td>91</td>
+            <td>83</td>
+            <td>97</td>
+            <td>88</td>
+            <td>92</td>
+            <td>80</td>
+            <td>94</td>
+            <td>86</td>
+            <td>801</td>
+            <td>89</td>
+            <td>2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box">div 테그</div>
+  </body>
+</html>

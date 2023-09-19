@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        font-size: 60px;
+      }
+      img {
+        width: 30px;
+      }
+      .Valign-baseline img {
+        vertical-align: baseline; /*기본값*/
+      }
+      .Valign-middle img {
+        vertical-align: middle;
+      }
+      .Valign-bottom img {
+        vertical-align: bottom;
+      }
+      .Valign-top img {
+        vertical-align: top;
+      }
+
+      p .base-text {
+        background-color: aquamarine;
+      }
+
+      p .badge {
+        background-color: chocolate;
+        color: white;
+        font-size: 0.3em;
+        vertical-align: top;
+        padding: 0.2em 0.8em 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>요소의 세로 정렬</h1>
+    <p class="Valign-baseline">
+      <span>Vertical-align</span>
+      <img src="pic/goyang.jpg" />
+    </p>
+    <p class="Valign-middle">
+      <span>Vertical-align</span>
+      <img src="pic/goyang.jpg" />
+    </p>
+    <p class="Valign-bottom">
+      <span>Vertical-align</span>
+      <img src="pic/goyang.jpg" />
+    </p>
+    <p class="Valign-top">
+      <span>Vertical-align</span>
+      <img src="pic/goyang.jpg" />
+    </p>
+    <p>
+      <span class="base-text"> Vertical-align</span>
+      <span class="badge">TOP</span>
+    </p>
+  </body>
+</html>

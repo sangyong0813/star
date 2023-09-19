@@ -28,46 +28,70 @@
         </table>
       </div>
 
-      <div>
+      <div class="mainInfo">
+        <table class="topInfo">
+          <tr>
+            <td class="imgTable" rowspan="3">
+              <img class="userPic" src="person.png" alt="증명사진" />
+            </td>
+            <th rowspan="2">성명</th>
+            <td>(한글) <input type="text" /></td>
+            <th>생년월일</th>
+            <td><input type="date" /></td>
+          </tr>
+          <tr>
+            <td>(영문) <input type="text" /></td>
+            <th>휴대폰</th>
+            <td><input type="tel" placeholder="010-1234-1234" /></td>
+          </tr>
+          <tr>
+            <th>현주소</th>
+            <td><input type="text" /></td>
+            <th>이메일</th>
+            <td><input type="email" placeholder="abc@abc.com" /></td>
+          </tr>
+        </table>
         <!-- 사진이랑 개인정보 부분 -->
       </div>
 
       <div class="mainInfo">
-        <table>
-          <tr>
-            <th class="mainInfoFirst" rowspan="4">학 <br />력 <br />사 <br />항</th>
-            <th>졸 업 일</th>
-            <th>학교명</th>
-            <th>전 공</th>
-            <th>졸업여부</th>
-            <th>소재지</th>
-            <th>성 적</th>
-          </tr>
-          <tr>
-            <td><input type="text" />고등학교</td>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-          </tr>
-          <tr>
-            <td><input type="text" />대학교</td>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-          </tr>
-          <tr>
-            <td><input type="text" />대학원</td>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-          </tr>
-        </table>
+        <div>
+          <table>
+            <tr>
+              <th class="mainInfoFirst" rowspan="4">학 <br />력 <br />사 <br />항</th>
+              <th>졸 업 일</th>
+              <th>학교명</th>
+              <th>전 공</th>
+              <th>졸업여부</th>
+              <th>소재지</th>
+              <th>성 적</th>
+            </tr>
+            <tr>
+              <td><input type="text" target="box" />고등학교</td>
+              <td><input type="text" /></td>
+              <td><input type="text" /></td>
+              <td><input type="text" /></td>
+              <td><input type="text" /></td>
+              <td><input type="text" placeholder="평균 학점" /></td>
+            </tr>
+            <tr>
+              <td><input type="text" />대학교</td>
+              <td><input type="text" /></td>
+              <td><input type="text" /></td>
+              <td><input type="text" /></td>
+              <td><input type="text" /></td>
+              <td><input type="text" placeholder="평균 학점" /></td>
+            </tr>
+            <tr>
+              <td><input type="text" />대학원</td>
+              <td><input type="text" /></td>
+              <td><input type="text" /></td>
+              <td><input type="text" /></td>
+              <td><input type="text" /></td>
+              <td><input type="text" placeholder="평균 학점" /></td>
+            </tr>
+          </table>
+        </div>
 
         <table>
           <tr>

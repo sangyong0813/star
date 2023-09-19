@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>의사 (가상, pseudo) 클래스</title>
+    <style>
+      /* 
+      :link (방문하지 않은 링크에 스타일을 적용)
+      :visited (방문한 링크에 스타일을 적용)
+      :hover (특정요소에 마우스 포인터를 올려놓을 때 스타일 적용)
+      :active (활성화된 요소에 마우스 포인터를 올려놓으면 스타일 적용 -- ex. 클릭하는 순간)
+      :focus (요소에 초점이 맞춰졌을 때)
+      */
+
+      li:hover {
+        background-color: lightcoral;
+      }
+
+      a:visited {
+        /* 방문했던 페이지 */
+        color: red;
+      }
+
+      h1::first-letter {
+        font-size: 40px;
+        color: cadetblue;
+      }
+
+      .firstUl li:nth-child(odd) {
+        border: 1px dotted lightseagreen;
+      }
+
+      input:checked + label {
+        border: 1px solid lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WEB의 프론트 기술</h1>
+    <ul class="firstUl">
+      <li><a href="https://namu.wiki/w/HTML">HTML</a></li>
+      <li><a href="https://namu.wiki/w/CSS">CSS</a></li>
+      <li><a href="https://namu.wiki/w/JavaScript">JavaScript</a></li>
+      <li><a href="https://namu.wiki/w/jQuery">JQuery</a></li>
+      <li>
+        <a
+          href="https://namu.wiki/w/AJAX(%EC%A0%95%EB%B3%B4%20%EA%B5%90%ED%99%98%20%EA%B8%B0%EB%B2%95)?from=AJAX"
+          >Ajax</a
+        >
+      </li>
+    </ul>
+
+    <ul>
+      <li>
+        <input type="radio" id="halfSub" name="subway" checked />
+        <label for="halfSub">서브웨이 half</label>
+      </li>
+      <li>
+        <input type="radio" id="footLongSub" name="subway" />
+        <label for="footLongSub">서브웨이 foot Long</label>
+      </li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+@import "variable.css";
+
+body {
+  font-family: "Nanum Pen Script", cursive;
+}
+
+.main-title {
+  background-color: var(--maingreen);
+  color: white;
+  border: var(--main-border);
+}

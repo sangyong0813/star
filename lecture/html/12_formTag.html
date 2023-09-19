@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form 태그</title>
+  </head>
+  <body>
+    <h3>로그인</h3>
+    <form action="" method="get">
+      <div>
+        아이디 :
+        <input type="text" />
+      </div>
+      <div>
+        패스워드 :
+        <input type="password" />
+      </div>
+      <div>
+        <input type="submit" value="로그인" />
+        <!-- 데이터를 전송하는 역활 -->
+        <input type="reset" value="취소" />
+        <!-- 페이지를 reload하는 역활 -->
+      </div>
+    </form>
+    <hr />
+    <!-- label 사용법 -->
+    <!-- (1) label 태그 안에 input 태그 넣어서 사용 -->
+    <div>
+      <label> 아이디 : <input type="text" /></label>
+    </div>
+    <!-- (2) for 속성과 id값을 일치 시켜서 사용 -->
+    <label for="pw">패스워드</label>
+    <input type="password" id="pw" />
+  </body>
+</html>

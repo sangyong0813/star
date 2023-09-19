@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .both {
+        max-width: 700px;
+        /* height: 300px; */
+        padding: 30px;
+        border: 3px solid darkcyan;
+        background-color: antiquewhite;
+      }
+      h1 {
+        margin: 0 0 10px;
+        text-align: center;
+      }
+
+      p {
+        box-sizing: border-box;
+        padding: 15px 25px;
+        text-align: justify;
+      }
+      .left {
+        background-color: coral;
+        border: 3px solid darkcyan;
+        width: 40%;
+        float: left;
+      }
+
+      .right {
+        background-color: cornflowerblue;
+        border: 3px solid darkcyan;
+        width: 40%;
+        float: right;
+      }
+      /* 위에 적용했던 float를 해제시키는 문구 */
+      .clear:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="both clear">
+      <h1>float 후 clear</h1>
+      <p class="left">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, quae doloremque alias enim
+        error possimus perferendis doloribus. Ipsum fugiat reiciendis corrupti quod. Debitis facere
+        laborum expedita iste magni nulla velit.
+      </p>
+      <p class="right">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque in hic similique earum iusto
+        magnam nam dolorum, exercitationem quas rerum nisi accusamus deserunt commodi cum nemo enim
+        natus voluptatibus beatae!
+      </p>
+    </div>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi temporibus amet molestiae
+      officia expedita tempore repudiandae dolores atque sapiente quibusdam facilis asperiores
+      fugiat dolorem reprehenderit et magni, illum ut beatae.
+    </p>
+  </body>
+</html>

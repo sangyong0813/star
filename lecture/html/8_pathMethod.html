@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>절대 경로 표현방법과 상대경로 표현방법</title>
+  </head>
+  <body>
+    <div>
+      절대경로 표현방식으로 출력: 드라이브 문자열 부터 모든 경로를 표시하는 방식
+      <br />
+      - 자원이 위치한 경로를 드라이브 문자부터 폴더까지 잘대적으로 표시한 방식 - 단점 : 자원의
+      위치가 바뀌게 되면 주소를 다 바꿔야 한다.
+      <img src="D:\lecture\html\pic\goyang.jpg" />
+    </div>
+
+    <div>
+      상대경로 표현 방식으로 출력: 현재 웹 문서를 기준으로 같은 웹 문서와 표시하려는 자원이 같은
+      경우에 있으면, 경로는 생략 가능 <br />
+      - 현재 웹 문서를 기준으로 폴더 안에 자원이 있다면 "폴더명/자원파일명" 으로 써야한다.
+      <img src="pic/goyang.jpg" alt="고양히어로즈" />
+      <img src="pic/person.png" alt="사람" />
+      <img src="../dokong2.png" alt="두콩이" /> <br />
+    </div>
+  </body>
+</html>
