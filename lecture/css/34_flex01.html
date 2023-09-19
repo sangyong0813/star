@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 700px;
+        background-color: blanchedalmond;
+        margin-bottom: 30px;
+        display: flex;
+      }
+      .box {
+        width: 80px;
+        background-color: cadetblue;
+        margin: 5px;
+        padding: 5px 45px;
+        text-align: center;
+      }
+      #container1 {
+        /* 왼쪽에서 오른쪽으로 */
+        flex-direction: row;
+      }
+      #container2 {
+        /* 위쪽에서 아래쪽으로 */
+        flex-direction: column;
+      }
+      #container3 {
+        /* 오른쪽에서 왼쪽으로 */
+        flex-direction: row-reverse;
+      }
+      #container4 {
+        /* 아래쪽에서 위쪽으로 */
+        flex-direction: column-reverse;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="container1">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <div class="container" id="container2">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <div class="container" id="container3">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <div class="container" id="container4">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+  </body>
+</html>

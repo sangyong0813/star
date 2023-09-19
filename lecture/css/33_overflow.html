@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div.overflow {
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+        overflow: auto;
+      }
+      div.ecllipse {
+        width: 200px;
+        height: 200px;
+        background-color: blueviolet;
+        /* overflow: hidden;  200px 넘는 내용을 보이지 않게 처리*/
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overflow">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia laudantium asperiores itaque
+      excepturi incidunt cumque, maiores sequi, ex accusamus deleniti nisi eos nobis, ad
+      exercitationem aliquid. Maiores ad error soluta? Lorem, ipsum dolor sit amet consectetur
+      adipisicing elit. Sunt, mollitia optio vitae quod dolor inventore cumque nihil repudiandae
+      facilis a dolore! Consequatur distinctio laudantium aspernatur suscipit, quod obcaecati quam
+      debitis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo tenetur natus a saepe
+      dolor esse soluta, officiis aspernatur odio beatae eius. Commodi sed eveniet, placeat hic
+      corporis accusantium temporibus assumenda!
+    </div>
+    <hr />
+    <div class="ecllipse">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia laudantium asperiores itaque
+      excepturi incidunt cumque, maiores sequi, ex accusamus deleniti nisi eos nobis, ad
+      exercitationem aliquid. Maiores ad error soluta? Lorem, ipsum dolor sit amet consectetur
+      adipisicing elit. Sunt, mollitia optio vitae quod dolor inventore cumque nihil repudiandae
+      facilis a dolore! Consequatur distinctio laudantium aspernatur suscipit, quod obcaecati quam
+      debitis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo tenetur natus a saepe
+      dolor esse soluta, officiis aspernatur odio beatae eius. Commodi sed eveniet, placeat hic
+      corporis accusantium temporibus assumenda!
+    </div>
+  </body>
+</html>
