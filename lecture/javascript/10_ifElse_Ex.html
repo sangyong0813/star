@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 사용자에게 이름, 국어, 영어, 수학 점수를 입력받아,
+      // 총점, 평균을 구하고, 학점을 구해 출력하는 프로그램을 만들어 보자.
+      // 단, 평균이 90점 이상이고 100점 이하 A
+      // 평균이 80 이상이고 90 미만이면 B
+      // 평균이 70 이상이고 80 미만이면 C
+      // 평균이 60 이상이고 70 미만이면 D
+      // 평균이 60점미만이면 F
+
+      // 1) 이름이랑 점수 입력받기
+      // 2) 총점과 평균을 계산
+      // 3) 학점 계산
+      // 4) 학점 출력 (table 태그를 이용) 행 2개 컬럼 7개
+
+      let stuName = window.prompt("이름을 입력하세요", "뚱이");
+      let kor = Number(window.prompt("국어 점수를 입력하세요", "80"));
+      let eng = Number(window.prompt("영어 점수를 입력하세요", "90"));
+      let math = Number(window.prompt("수학 점수를 입력하세요", "70"));
+
+      console.log(stuName, kor, eng, math);
+
+      let tot = kor + eng + math;
+      let avg = tot / 3;
+      console.log(tot, avg);
+
+      let grade = "";
+
+      document.write(`이름 : ${stuName} , 총점 : ${tot}, 평균 : ${avg}`);
+
+      if (avg >= 90 && avg <= 100) {
+        grade = "A";
+      } else if (avg >= 80 && avg < 90) {
+        grade = "B";
+      } else if (avg >= 70 && avg < 80) {
+        grade = "C";
+      } else if (avg >= 60 && avg < 70) {
+        grade = "D";
+      } else {
+        grade = "F";
+      }
+      console.log(grade);
+      document.write(`<h1 class=title">성적표</h1>`);
+      let output = `<table class="score">
+        <tr>
+        <td>이름</td>
+        <td>국어</td>
+        <td>영어</td>
+        <td>수학</td>
+        <td>총점</td>
+        <td>평균</td>
+        <td>학점</td>
+        </tr>
+        <tr>
+        <td>${stuName}</td>
+        <td>${kor}</td>
+        <td>${eng}</td>
+        <td>${math}</td>
+        <td>${tot}</td>
+        <td>${avg}</td>
+        <td>${grade}</td>
+        </tr>
+        </table>
+        `;
+      document.write(output);
+    </script>
+    <style>
+      .score,
+      td,
+      tr {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>전역변수 vs 지역변수</title>
+    <script>
+      let data = 3;
+      data = 5;
+
+      if (data > 0) {
+        console.log(data);
+        let tmp = 7;
+        console.log(tmp);
+        data = 9;
+        var tmpVar = 1;
+      }
+      console.log(tmpVar);
+      console.log(data);
+    </script>
+  </head>
+  <body></body>
+</html>

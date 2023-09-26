@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>최대값, 최소값 구하기</title>
+    <script>
+      // 1~100까지의 랜덤한 수 10개를 배열에 넣어두고
+      // 그 랜덤 수들 중에 max(최대값), min(최소값)을 각각 구해 출력하세요.
+      window.onload = function () {
+        let data = new Array(10);
+        for (let i = 0; i < data.length; i++) {
+          data[i] = Math.floor(Math.random() * 100 + 1);
+          console.log(data);
+        }
+
+        let dataTable = "<table><tr>";
+        let cnt = 0;
+        for (let c = 0; c < 10; c++) {
+          dataTable += `<td>${data[cnt++]}</td>`;
+        }
+        dataTable += "</tr></table>";
+        document.getElementById("dataTable").innerHTML = dataTable;
+
+        let maxData = data[0];
+        for (let i = 1; i < data.length; i++) {
+          if (data[i] > maxData) {
+            maxData = data[i];
+          }
+          console.log(maxData);
+        }
+
+        let minData = data[0];
+        for (let i = 1; i < data.length; i++) {
+          if (data[i] < minData) {
+            minData = data[i];
+          }
+          console.log(minData);
+        }
+
+        let tds = document.getElementsByTagName("td");
+        console.log(tds[0].innerHTML);
+        for (item of tds) {
+          console.log(item);
+          if (maxData == item.innerHTML) {
+            item.style.backgroundColor = "red";
+            item.style.color = "white";
+            item.innerHTML = "★" + maxData;
+          }
+        }
+        for (item of tds) {
+          console.log(item);
+          if (minData == item.innerHTML) {
+            item.style.backgroundColor = "blue";
+            item.style.color = "white";
+            item.innerHTML = "☆" + minData;
+          }
+        }
+      };
+    </script>
+    <style>
+      #dataTable table,
+      tr,
+      td {
+        border: 2px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <h5>max(최대값) = 빨간배경 검정별</h5>
+    <h5>min(최소값) = 파란배경 투명별</h5>
+    <div id="dataTable"></div>
+  </body>
+</html>

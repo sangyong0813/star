@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오름차순 정렬</title>
+    <script>
+      // 칠판에 설명한 알고리즘을 잘 기억해서,
+      // 1 ~ 100까지의 랜덤한 수 10개를 배열에 넣어두고.
+      // 오름차순으로 정렬하고
+      // 정렬 전과, 정렬 후의 배열을 각각 출력하세요.
+
+      window.onload = function () {
+        let data = new Array(10);
+        for (let i = 0; i < data.length; i++) {
+          data[i] = Math.floor(Math.random() * 100 + 1);
+        }
+        // --------------------------------------------------------------
+        let beforeTable = "<table><tr>";
+        let cnt = 0;
+        for (let c = 0; c < 10; c++) {
+          beforeTable += `<td>${data[cnt++]}</td>`;
+        }
+        beforeTable += "</tr></table>";
+        document.getElementById("beforeTable").innerHTML = beforeTable;
+        // --------------------------------------------------------------
+
+        for (let i = 0; i < data.length; i++) {
+          for (let j = i + 1; j < data.length; j++) {
+            if (data[i] > data[j]) {
+              let tmp = data[j];
+              data[j] = data[i];
+              data[i] = tmp;
+            }
+          }
+        }
+        // ----------------------------------------------------------
+        let afterTable = "<table><tr>";
+        let tnc = 0;
+        for (let c = 0; c < 10; c++) {
+          afterTable += `<td>${data[tnc++]}</td>`;
+        }
+        afterTable += "</tr></table>";
+        document.getElementById("afterTable").innerHTML = afterTable;
+      };
+    </script>
+    <style>
+      table,
+      tr,
+      td {
+        border: 2px solid black;
+        padding: 0px 5px;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>정렬 전</h3>
+    <div id="beforeTable"></div>
+    <h3>정렬 후</h3>
+    <div id="afterTable"></div>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연산자의 종류</title>
+    <script>
+      // 산술연산자 (+, -, *, /, %(나머지 연산자))
+      let a = 3,
+        b = 5;
+      console.log(b % a); // 5 / 3 의 나머지 = 2
+      console.log(a * b - a); // (3 * 5) -3 = 12
+      console.log(b ** a); // 5^3 = 125
+      console.log(b ** (a ** 4)); // 5^(3^4)
+
+      // 증감연산자 ++, --
+      // 증감 연산자는 연산자의 위치에 따라 우선순위가 달라진다.
+      // 전치 연산 : 선증감 후 대입 : ++i
+      // 후치 연산 : 선대입 후 증감 : i++
+      // i++ : i = i + 1
+      // a = 3
+      console.log(a++); //3
+      console.log(a); //4
+      // a=4, b=5
+      console.log(b++ * ++a); // 5 * 5 = 25?
+      console.log(a, b);
+
+      //문제
+      let i = 1;
+      let j = i++ + 1;
+      let k = ++i + 1;
+      console.log(i, j, k);
+
+      // 관계 연산자 : 연산의 결과가 true 또는 false가 나오게 하는 연산자
+      // >(크다), <(작다), >=(크거나 같다), <=(작거나 같다), ==(같다), != (같지 않다)
+      // a = 5, b = 6
+      console.log(a > b);
+      console.log(a != b);
+      console.log(++a == b);
+      console.log(b % 2 == 0);
+
+      // 논리 연산자 : 관계 연산자와 관계 연산자의 조합을 하는 연산자
+      // && (and 그리고) -> A && B : 수식이 모두 참일때만 결과가 참
+      // || (or 또는)    -> A || B : 수식이 하나라도 참인 값이 있으면 결과 참, 수식이 모두 거짓이면 거짓
+      // ! (not) !true = false, !false = true
+      // a = 6, b = 6
+      console.log(a > b && b != 3);
+      console.log(a == 6 && b == 6);
+      console.log(a == 6 && b == 6 && b % 2 == 0);
+      console.log(a > 2 || b == 6); // true || true => true
+      console.log(a < 0 || b > 0); // fales || true => true
+      console.log(a < 0 || b < 0); //false || false => false
+      console.log(a);
+      console.log(!(a < 0)); //!(false) => true
+      console.log(!a < 0); // false
+      console.log(!a == 0); //true
+      console.log(!!a); // true
+      console.log(!!a > b); ///false
+
+      // 연산자의 우선순위 : 증감 연산자 > 논리 연산자not > 산 > 관 > 논 (&&, ||)
+
+      console.log("A" > "a"); //false : 아스키 코드값 A = 65 , a = 97
+
+      // 대입연산자
+      // =, +=(더해서 대입), -= (빼서 대입), *= (곱해서 대입), /= (나눠서 대입)
+      let result = 0;
+      result += 3; //result = result + 3
+      console.log(result);
+      result *= 2; // result = result * 2 = 3 * 2
+      console.log(result);
+      result /= 2; // result = result / 2 = 6 / 2 = 3
+      console.log(result);
+      result %= 2;
+      console.log(result); // 1
+
+      // 비교 연산자
+      // == vs ===
+      // == equal 연산자 : 피연산자의 자료형을 묵시적으로 일치 시킨 후에 비교를 수행
+      // === equal 연산자 : 피연산자의 자료형을 일치시키지 않고 비교를 수행
+      console.log(1 == 1); //true
+      console.log("1" == 1); //true
+      console.log("1" === 1); //false
+      console.log("1" != 1); //false
+      console.log("1" !== 1); //true -> 데이터 타입까지 고려해서, 값이 같지 않거나, 자료형이 같지 않으면 true
+
+      // falsy
+      console.log("--------------");
+      console.log(!0); // ture
+      console.log(Boolean(0)); // false
+      console.log(Boolean(NaN)); // false
+      console.log(Boolean("")); // false
+      console.log(Boolean(null)); // false
+      console.log(Boolean(undefined)); // false
+
+      console.log(Boolean(1)); // true
+
+      //-----------------------------------
+      // aabbbccdddeeee = a2b3c2d3e4
+      // 쉬프트 연산자 (자리이동 연산자)
+      // 왼쪽 쉬프트 연산자 : <<, 오른쪽 쉬프트 연산자 : >>
+      // a << 4
+      a = 5; // 0101 = 1 * 2^2 + 0 * 2^1 + 1 * 2^0
+      // a << 2 : 00101 << 2 => 10100  ==> 5 * 2^2 = 20
+      // a >> 2 : 1 ==> 5 / (2^2) = 1
+      console.log(a << 2);
+      console.log(a >> 2);
+
+      // 비트 연산자 : 2진수로 바꾸어 비트 단위로 연산.
+      // and (&) : 모두 1일 때만 1, 나머지는 0
+      // or (|) : 둘중 하나라도 1이면 1, 모두 0 이라면 0
+      // xor (^ : exclusiv or, 배타적 or) : 서로 다르면 1, 같으면 0
+      // not (~ 단항연산자) : 1은 0 , 0은 1로 바꾼다
+      a = 5; //   0101
+      b = 3; //   0011
+      // a & b => 0001
+      // a | b => 0111
+      // a ^ b => 0110
+      // ~a
+      console.log("비트 연산자 a & b =", a & b);
+      console.log("비트 연산자 a | b =", a | b);
+      console.log("비트 연산자 a ^ b =", a ^ b);
+      console.log("비트 연산자 ~a =", ~a);
+
+      // ----
+      console.log((5 != 4) == 0);
+      console.log(5 != (4 == 0));
+
+      //------- 232
+      //  128  64  32  16  8  4  2  1
+      //    1   1   1   0  1  0  0  0
+    </script>
+  </head>
+  <body></body>
+</html>

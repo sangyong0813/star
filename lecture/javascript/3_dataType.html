@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트에서 사용 가능한 데이터 타입 (데이터 종류)</title>
+    <script>
+      // 1. number : 숫자 (정수, 실수 3.14 = 0.314*10)
+      let number = 4;
+      console.log(number);
+      console.log(typeof number); // 연산자 - typeof 변수 또는 상수 : 데이터 타입을 알려준다.
+
+      let pi = 3.141592; //실수
+      console.log(typeof pi);
+
+      // 2.String : 문자 또는 문자열 (자바스크립트에서는 문자| 문자열을 '' 또는 ""로 묶어서 표현한다);
+      let name = "홍길동";
+      console.log(typeof name);
+      name = "둘리";
+      console.log(typeof name);
+      name = 1;
+      console.log(typeof name);
+
+      // 3. boolean : true (참) 또는 false (거짓)값
+      let isHandsome = true;
+      console.log(isHandsome);
+      console.log(typeof isHandsome);
+
+      let isNotHandsome = false;
+      console.log(isNotHandsome);
+      console.log(typeof isNotHandsome);
+
+      // 4. undifined : 선언은 되었지만, 값이 할당되지 않은 상태
+      let a;
+      console.log(a); //undefined
+
+      // 5. null : 아무것도 없는 값
+      let b = null;
+      console.log(b);
+
+      console.log(isNaN("a")); //true
+      console.log(isNaN(" ")); //false
+      console.log(isFinite(1 / 0));
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가위 바위 보</title>
+    <script>
+      // 컴퓨터와 유저와의 가위바위보
+      // 컴퓨터 : 랜덤하게 가위1, 바위2, 보3를 낸다
+      // 유저 : select해서 [선택] 버튼 누르면, 가위, 바위, 보를 낸다.
+
+      let win = 0;
+      let draw = 0;
+      let lose = 0;
+
+      function gameStart() {
+        let users = Number(document.getElementById("userSelect").value);
+        let computers = Math.floor(Math.random() * 3 + 1);
+        console.log(users, computers);
+
+        let userImg = "";
+        switch (users) {
+          case 1:
+            userImg = "pic/scissors.PNG";
+            break;
+          case 2:
+            userImg = "pic/rock.PNG";
+            break;
+          case 3:
+            userImg = "pic/paper.PNG";
+            break;
+        }
+
+        let computerImg = "";
+        switch (computers) {
+          case 1:
+            computerImg = "pic/scissors.PNG";
+            break;
+          case 2:
+            computerImg = "pic/rock.PNG";
+            break;
+          case 3:
+            computerImg = "pic/paper.PNG";
+            break;
+        }
+
+        console.log(userImg);
+        console.log(computerImg);
+
+        document.getElementById("user").src = userImg;
+        document.getElementById("computer").src = computerImg;
+
+        let result = "";
+        switch (users - computers) {
+          case 0:
+            result = "비겼다!";
+            document.getElementById("result").style.color = "black";
+            draw++;
+            break;
+          case 1:
+            result = "이겼다~^^";
+            document.getElementById("result").style.color = "blue";
+            win++;
+            break;
+          case -2:
+            result = "이겼다~^^";
+            document.getElementById("result").style.color = "blue";
+            win++;
+            break;
+          default:
+            result = "졌다ㅠㅠ";
+            document.getElementById("result").style.color = "red";
+            lose++;
+        }
+
+        document.getElementById("result").innerHTML = result;
+        console.log(win, draw, lose);
+        document.getElementById("result-total").innerHTML = `${win}승 ${draw}무 ${lose}패`;
+        document.getElementById("winRate").innerHTML = `${Math.floor(
+          (win / (win + draw + lose)) * 100
+        )} %`;
+      }
+    </script>
+    <style>
+      * {
+        margin: 0 0;
+        padding: 0;
+      }
+      .container {
+        width: 800px;
+        height: 700px;
+        background-color: blanchedalmond;
+        border: 4px solid cadetblue;
+        position: relative;
+      }
+
+      .table1 {
+        width: 450px;
+        height: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -225px 0 0 -200px;
+      }
+
+      .table2 {
+        width: 100%;
+      }
+
+      h1 {
+        text-align: center;
+        text-shadow: 3px 3px 4px gray;
+        margin-top: 60px;
+      }
+      .userInput {
+        text-align: right;
+
+        height: 60px;
+      }
+      #userSelect {
+        width: 80px;
+        height: 30px;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+      }
+      #button {
+        width: 60px;
+        height: 30px;
+        background-color: white;
+        font-weight: bold;
+        font-size: 20px;
+        color: cadetblue;
+        border: 3px solid cadetblue;
+        text-align: center;
+      }
+
+      table,
+      tr,
+      th,
+      td {
+        border: 2px solid cadetblue;
+        border-collapse: collapse;
+        text-align: center;
+      }
+
+      img {
+        width: 223px;
+        height: 200px;
+      }
+      #result {
+        width: 448px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 50px;
+        margin: 0 50px 0 0;
+        text-shadow: 3px 3px 4px gray;
+      }
+
+      #result-total {
+        text-align: center;
+      }
+
+      #winRate {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>가위, 바위, 보!!</h1>
+      <div class="table1">
+        <div class="userInput">
+          <select name="" id="userSelect">
+            <option value="1">가위</option>
+            <option value="2">바위</option>
+            <option value="3">보</option>
+          </select>
+          <input type="button" value="선택" id="button" onclick="gameStart()" />
+        </div>
+        <div class="table2">
+          <table>
+            <tr>
+              <th>User</th>
+              <th>Computer</th>
+            </tr>
+            <tr>
+              <td><img id="user" src="" alt="" /></td>
+              <td><img id="computer" src="" alt="" /></td>
+            </tr>
+          </table>
+        </div>
+        <div id="result">결과는~?</div>
+        <br />
+        <div id="result-total">n승 n무 n패</div>
+        <div id="winRate"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>가위, 바위, 보 게임</title>
+    <script>
+        let tieCnt = 0;
+        let winCnt = 0;
+        let loseCnt = 0;
+
+        function run() {
+            // 컴퓨터는 1~3사이의 난수를 선택
+            let comp = parseInt(Math.random() * 3 + 1);  // 컴퓨터가 선택한 값
+            let user = document.getElementById("userSelect").value; // 유저가 선택한 값
+
+            console.log(comp, user);
+
+            let scissors = "<img src='scissors.png' />";
+            let rock = "<img src='rock.png' />";
+            let paper = "<img src='paper.png' />";
+
+            // 컴퓨터가 가위=1을 선택하면, scissors이미지를 넣어주자.
+            
+            if (comp == 1) {
+                document.getElementById("comp").innerHTML = scissors;
+            } else if (comp == 2) {
+                document.getElementById("comp").innerHTML = rock;
+            } else {
+                document.getElementById("comp").innerHTML = paper;
+            }
+
+            // 유저가 선택한 이미지 넣기
+            if (user == 1) {
+                document.getElementById("user").innerHTML = scissors;
+            } else if (user == 2) {
+                document.getElementById("user").innerHTML = rock;
+            } else {
+                document.getElementById("user").innerHTML = paper;
+            }
+
+            // 승패 판단하기, 승패 카운트 증가
+            if (user-comp==0) { // 유저가 비긴 경우
+                document.getElementById("result").innerHTML = "비겼다!!";
+                // document.getElementById("user").style.backgroundColor = "skyblue";
+                tieCnt++;
+            } else if ( user - comp == 1 || user - comp == -2) { // 유저가 이긴 경우
+                document.getElementById("result").innerHTML = "이겼다!!";
+                winCnt++;
+            } else { // 유저가 진 경우
+                document.getElementById("result").innerHTML = "졌다ㅠㅠ";
+                loseCnt++;
+            }
+
+            // 승 무 패 카운트 표시
+            document.getElementById("final").innerHTML = winCnt + "승" + tieCnt + "무" + loseCnt + "패";
+
+            // 승률 표시
+            winRate = winCnt / (winCnt + tieCnt + loseCnt) * 100;
+            document.getElementById("winRate").innerHTML = "<strong>"+ Math.round(winRate*100) / 100 + "% </strong>";
+            // 승률 소숫점 둘째 자리까지 표현
+            
+
+            
+        }
+    </script>
+    <style>
+        #title {
+            padding: 15px;
+            color : blue;
+            background-color: aquamarine;
+            text-align: center;
+        }
+
+        #userSelectDiv {
+            float : right;
+        }
+
+        td {
+            text-align : center;
+        }
+
+        td img {
+            width : 200px;
+        }
+
+        td.division{
+            background-color: brown;
+            color : white;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            color: crimson;
+            
+        }
+
+        #final {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            color: darkslategray;
+        }
+
+        #winRate {
+            text-align: center;
+            font-size: 25px;
+        }
+        
+    </style>
+
+
+</head>
+<body>
+    <div class="container mt-3">
+        <h2 id="title">가위, 바위, 보!</h2>
+        <!-- 사용자가 선택 옵션 -->
+        <div id="userSelectDiv">
+            <select id="userSelect">
+                <option value="1">가위</option>
+                <option value="2">바위</option>
+                <option value="3">보</option>
+            </select>
+            <button type="button" class="btn btn-warning" onclick="run();">선택</button>
+
+        </div> 
+        <div id="display">
+            <table class="table table-bordered">
+                <tr>
+                    <td class="division">컴퓨터</td>
+                    <td class="division">사용자</td>
+                </tr>
+                <tr>
+                    <td id="comp"></td>
+                    <td id="user"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="result"></div>
+        <div id="final">승 무 패</div>
+        <div id="winRate">승률</div>
+    </div>
+</body>
+</html>

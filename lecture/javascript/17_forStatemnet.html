@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for 반복문</title>
+    <script>
+      for (let i = 0; i < 5; i++) {
+        document.write(`${i}번째 안녕하세요<br /> `);
+      }
+      document.write(`<hr/>`);
+      // 1) 인덱스를 2씩 증가
+      for (let i = 0; i < 10; i += 2) {
+        document.write(`${i}번째 안녕하세요<br /> `);
+      }
+
+      document.write(`<hr/>`);
+      // 2) ul 태그 안에 li 태그가 4번이 나오도록, li태그 안에 1,2,3,4가 들어가도록 만드세요.
+      let output = "<ul>";
+      for (let i = 1; i < 5; i++) {
+        output += `<li>${i}</li>`;
+      }
+      output += "</ur>";
+      document.write(output);
+      document.write(`<hr/>`);
+
+      let table = `<table border="1">`;
+      // for (let i = 1; i < 11; i += 3) {
+      //   table += `<tr><td>${i}</td><td>${i + 1}</td><td>${i + 2}</td></tr>`;
+      // }
+      // document.write(table);
+
+      let cnt = 1;
+      for (let i = 0; i < 4; i++) {
+        table += `<tr><td>${cnt++}</td><td>${cnt++}</td><td>${cnt++}</td></tr>`;
+      }
+      table += `</table>`;
+      document.write(table);
+
+      // 4) 1~100까지의 누적 합을 구하시오 . + 출력
+
+      // 5) 1~100까지의 짝수합, 홀수합을 구하고 출력하세요
+
+      // 6) 유저에게 단을 입력받아서, 해당하는 단의 구구단을 출력하세요. (optional : 테이블로 출력)
+    </script>
+  </head>
+  <body></body>
+</html>

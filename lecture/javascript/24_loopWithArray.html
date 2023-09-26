@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열과 함께 쓰면 좋은 반복문</title>
+    <script>
+      let heroes = [
+        "아이언맨",
+        "스파이더맨",
+        "닥터스트레인지",
+        "토르",
+        "헐크",
+        "블랙팬서",
+        "캡틴아메리카",
+      ];
+      document.write(heroes + "<br/>");
+
+      // for문
+      for (let i = 0; i < heroes.length; i++) {
+        if (i !== heroes.length - 1) {
+          document.write(heroes[i] + ", ");
+        } else {
+          document.write(heroes[i]);
+        }
+      }
+      document.write("<hr/>");
+
+      // for ~ in 문법
+      document.write("for ~ in 문법 --> index <br/>");
+      for (let i in heroes) {
+        document.write(heroes[i] + "<br />");
+      }
+
+      // for ~ of 문법
+      document.write("<hr/>");
+      document.write("for ~ of 문법 --> index <br/>");
+      for (let item of heroes) {
+        document.write(item + "<br/>");
+      }
+
+      // forEach 문법
+      document.write("<hr/>");
+      document.write("forEach문법 --> item <br/> ");
+      heroes.forEach(function (item, i) {
+        document.write(`${i}번째 요소에 있는 데이터는 ${item}입니다 <br />`);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

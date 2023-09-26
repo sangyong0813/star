@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3항 연산자</title>
+    <script>
+      let a = 10;
+      //  (조건식) ? A : B
+      console.log(a > 5 ? "크다" : "작다");
+
+      //  a가 홀수인지 짝수 인지
+      console.log(a % 2 == 0 ? "짝수" : "홀수");
+      let result = ""; // 문자열로 선언하고
+      result = a % 2 == 0 ? "짝수" : "홀수";
+      console.log(result);
+
+      // if문
+      if (a % 2 == 0) {
+        // 참이면 수행하는 문장
+        result = "짝수";
+      } else {
+        // 조건식이 거짓일 때 수행하는 문장
+        result = "홀수";
+      }
+      console.log(result);
+    </script>
+  </head>
+  <body></body>
+</html>

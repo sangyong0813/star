@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제 9/25</title>
+    <script>
+      document.write("<h3>연습문제 1</h3>");
+      let first = 0;
+      let excludeNum = "";
+      for (let i = 1; i < 10; i++) {
+        if (i % 3 == 0) {
+          excludeNum += i + ",";
+          continue;
+        }
+        first += i;
+        console.log(i, first);
+      }
+      document.write(`1~9중 3의배수 (${excludeNum})를 제외한 합 = ${first} <br />`);
+      document.write(`<hr />`);
+      console.log("-------------------");
+
+      document.write("<h3>연습문제2</h3>");
+      let second = 0;
+      for (let i = 0; i < 101; i++) {
+        if (i % 2 == 0) {
+          second += i;
+        } else {
+          continue;
+        }
+        console.log(i, second);
+      }
+      document.write(`1~100중 짝수의 합 = ${second} <br />`);
+      document.write(`<hr />`);
+      console.log("-------------------");
+
+      document.write("<h3>연습문제3(feat. for)</h3>");
+      let third = 0;
+
+      for (let i = 0; i < 101; i++) {
+        third += i;
+        console.log(i, third);
+        if (third > 1000) {
+          document.write(`1부터 누적합을 구하되, ${i}까지 더해야 1000이 넘어간다<br/>`);
+          document.write(`총합은 ${third}입니다.`);
+          break;
+        }
+      }
+      document.write(`<hr />`);
+      console.log("-------------------");
+      document.write("<h3>연습문제3(feat. while)</h3>");
+
+      //while
+      let fourth = 0;
+      let i = 0;
+      while (fourth < 1001) {
+        fourth += i;
+        console.log(i, fourth);
+        i++;
+      }
+      document.write(`${i}까지 누적합은 ${fourth}값이 됩니다.<br/>`);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로그래밍 연습 1</title>
+    <script>
+      // 문제 1) 밑변가 3cm, 높이가 6cm인 직사각형의 넓이를 구해서, 출력하는 프로그램을 만드세요.
+      // 1) (입력) 밑변 값과 높이 값을 변수에 저장
+
+      // 2) (처리) 넓이 = 밑변  * 높이
+
+      // 3) (출력) 화면에 넓이 값을 출력
+
+      let base = 3,
+        height = 6,
+        area;
+      area = base * height;
+
+      console.log(base, height, area);
+
+      document.write("밑변이 3cm, 높이가 6cm인 직사각형의 넓이 : " + area + "cm<sup>2</sup>이다.");
+
+      // 문제 2) 반지름이 5cm인 원의 넓이를 구하고, 출력하세요.
+      //  1) (입력) 반지름 값 변수에 저장
+      //  2) (처리) 반지름 값 * 반지름 값 * 원주율 = 원 넓이
+      //  3) (출력) 화면에 넓이 값을 출력
+
+      let radius = 5,
+        cricleArea;
+
+      cricleArea = radius * radius * Math.PI;
+
+      console.log(radius, cricleArea);
+
+      document.write("<div>원의 넓이 구하는 공식은 반지름<sup>2</sup> * &pi; 이다</div>");
+      document.write(
+        "<div>반지름이 5cm인 원의 넓이는 " + cricleArea + "cm<sup>2</sup>이다. </div>"
+      );
+
+      // 문제3)
+      // num1 이라는 변수에 3이 대입되어 있고.
+      // num2 라는 변수는 5가 대입되어 있다.
+      // 두 변수의 값을 바꾸어 저장되도록 하고 , 출력하세요.
+
+      let num1 = 3,
+        num2 = 5;
+      let tmp = 0;
+      console.log(num1, num2, tmp);
+      tmp = num1;
+      console.log(num1, num2, tmp);
+      num1 = num2;
+      console.log(num1, num2, tmp);
+      num2 = tmp;
+      console.log(num1, num2, tmp);
+
+      // 문제 4)
+      // 밑변과 높이를 유저에게 입력받아, 삼각형의 넓이를 구해, 축력하는 프로그램을 만드세요.
+      //
+      let width1 = 0,
+        height1 = 0,
+        result = 0;
+      width1 = window.prompt("밑변의 길이를 입력하세요!");
+      height1 = window.prompt("높이의 길이를 입력하세요!");
+
+      result = (width1 * height1) / 2;
+
+      document.write("<div> 삼격형의 넓이는 " + result + " 입니다.</div>");
+    </script>
+  </head>
+  <body></body>
+</html>

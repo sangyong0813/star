@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // html, css, javascript 세 과목의 점수를 입력 받아
+      // 평군을 구하고,
+      // 평균이 60점 이상이고, 과목당 40점 이상이어야 합격.
+      // 40점 미만인 과목은 불합격 이라고 출력하세요.
+      let html = Number(window.prompt("html 점수 입력 :"));
+      let css = Number(window.prompt("css점수"));
+      let js = Number(window.prompt("javascript 점수입력 :"));
+
+      console.log(html, css, js);
+      let total = html + css + js;
+      let avg = total / 3;
+      console.log(total, avg);
+
+      result = "";
+
+      if (total == 300) {
+        result = "만점 합격";
+      } else if (avg >= 60 && html >= 40 && css >= 40 && js >= 40) {
+        result = "합격";
+      } else if (html < 40 && css >= 40 && js >= 40) {
+        result = "html 과락으로 불합격";
+      } else if (css < 40 && html >= 40 && js >= 40) {
+        result = "css 과락으로 불합격";
+      } else if (js < 40 && html >= 40 && css >= 40) {
+        result = "javascript 과락으로 불합격";
+      } else if (html < 40 && css < 40 && js >= 40) {
+        result = "html, css 과락으로 불합격";
+      } else if (css < 40 && html >= 40 && js < 40) {
+        result = "css, js 과락으로 불합격";
+      } else if (js < 40 && html < 40 && css >= 40) {
+        result = "html, javascript 과락으로 불합격";
+      } else {
+        result = "불합격";
+      }
+
+      document.write(`평균 점수는 ${avg}점 입니다.<br / >`);
+      document.write(`${result} 입니다.`);
+    </script>
+  </head>
+
+  <body></body>
+</html>

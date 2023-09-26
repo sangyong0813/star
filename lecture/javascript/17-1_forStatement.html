@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1~100 연습문제 & 구구단</title>
+    <script>
+      // 4) 1~100 누적합
+      let first = 0;
+      for (let i = 1; i < 101; i++) {
+        first = first + i;
+        console.log(i, first);
+      }
+      document.write(first);
+      document.write("<hr/>");
+      console.log("------------------");
+
+      // 5) 1~100 짝수합
+      let second = 0;
+      for (let i = 0; i < 101; i += 2) {
+        second = second + i;
+        console.log(i, second);
+      }
+      document.write(second);
+      document.write("<hr/>");
+      console.log("------------------");
+
+      // 5) 1~100 홀수합
+      let third = 0;
+      for (let i = 1; i < 100; i += 2) {
+        third = third + i;
+        console.log(i, third);
+      }
+      document.write(third);
+      document.write("<hr/>");
+      console.log("------------------");
+
+      // 6) 유저에게 단을 입력받아서, 해당하는 단의 구구단을 출력하세요. (optional : 테이블로 출력)
+      function start() {
+        let dan = document.getElementById("dan").value;
+        let result = 0;
+        let gugudan = `<h3>구구단 ${dan}단입니다</h3><table border ="1">`;
+        for (let i = 1; i < 10; i++) {
+          result = dan * i;
+          console.log(dan, i, result);
+          gugudan += `<tr><td>${dan}</td><td>*</td><td>${i}</td><td>=</td><td>${result}</td></tr>`;
+        }
+        gugudan += `</table>`;
+        document.getElementById("result").innerHTML = gugudan;
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="dan" placeholder="단을 입력하시오!" />
+      <button onclick="start()">시작</button>
+    </div>
+    <div id="result"></div>
+  </body>
+</html>

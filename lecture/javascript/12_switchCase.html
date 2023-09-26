@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switch문</title>
+    <script>
+      // 유저에게 성인, 청소년, 어린이인지 입력받아서 입장료를 출력
+
+      let ageGroup = window.prompt("성인, 청소년, 어린이 중 입력하세요!");
+
+      switch (ageGroup) {
+        case "성인":
+          ageGroup += " : 입장료 5000원";
+          break;
+        case "청소년":
+          ageGroup += " : 입장료 3000원";
+          break;
+        case "어린이":
+          ageGroup += " : 입장료 2000원";
+          break;
+        default:
+          ageGroup = "다시 입력하세요!";
+      }
+      document.write(ageGroup);
+    </script>
+  </head>
+  <body></body>
+</html>

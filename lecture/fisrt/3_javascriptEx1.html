@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바 스크립트 알고리즘 - 순서</title>
+    <script>
+        document.write("<div>1번 명령어</div>"); // 화면에 출력
+        document.write("<div>3번 명령어</div>"); 
+        document.write("<div>2번 명령어</div>");
+
+        //  변수 : 데이터를 기억하는 그릇
+        //  3 + 5 = ?
+        //  머릿속에 3이라는 데이터와 5라는 데이터를 저장
+        //  3과 5를 더한다는 연산도 저장
+        //  결과를 또 다른 변수에 저장
+        //  결과를출력 ==> 8
+
+        let num1 = 3; //num1이라는 변수에 3이라는 값을 저장
+        let num2 = 5; //num2라는 변수에 5라는 값을 저장
+
+        let result = num1 + num2; //num1과 num2를 더해서 result 변수에 저장
+        
+        document.write("<div>결과는 " + num1 + "</div>");
+        document.write("<div>결과는 " + num1 + num2 + "</div>");
+        document.write("<div>결과는 " + (num1 + num2) + "</div>");
+        document.write("<div>결과는 " + result + "</div>");
+
+        // num1 = 300;
+
+        var a = 3; // a라는 변수를 만들고 3을 대입
+        var a = 300; // 29번 라인에서 a라는 변수를 만들었지만, 30번 라인에서 다시 만들 수 있다.(안 쓰는 것을 추천)
+
+        {
+            let num3 = 10;
+            document.write("<div>" + num3 + "</div>");
+        }
+
+        {
+            var b = 4;
+        }
+        document.write("<div>" + b + "</div>");
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

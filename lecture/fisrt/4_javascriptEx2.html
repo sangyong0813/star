@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비교판단 (짝수, 홀수)</title>
+    <script>
+        // 비교 판단 : 조건이 참(true)인지 거짓(false)인지 비교하고 그 결과에 따라 서로 다른 명령어 처리를 할 수 있다.
+        // 1에서 100사이의 난수를 발생시키고, 그 난수가 짝수이면 "짝수입니다"라고 출력
+        // 그 난수가 홀수이면 "홀수입니다"라고 출력한다.
+        // 난수 생성
+        let num = parseInt(Math.random() * 100);  // 0~1사이의 난수 생성
+        // document.write(num);
+
+        // 만약 ()라면
+        /* if(조건식) {
+            조건식이 참일 때 수행될 문장(들);
+        } */
+
+        /* if(조건식) {
+            조건식이 참일 때 수행될 문장(들);
+        } else {
+            조건식이 거짓일 때 수행될 문장(들)
+        }
+        */
+
+        if(num % 2 == 0) {
+            document.write("<h1>" + num + " 은 짝수입니다~!! </h1>");
+        } else {
+            document.write("<h1>" + num + " 은 홀수입니다~!! </h1>");
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

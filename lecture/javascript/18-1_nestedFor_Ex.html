@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 직각 삼각형 별
+      // *
+      // **
+      // ***
+      // ****
+      // *****
+      document.write("<h2>직각삼각형별</h2>");
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j <= i; j++) {
+          document.write("★");
+        }
+        document.write("<br />");
+      }
+
+      document.write("<h2>줄무늬 직각삼각형별</h2>");
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j <= i; j++) {
+          if (i % 2 == 1) {
+            // 홀수인 경우
+            document.write("☆");
+          } else {
+            document.write("★");
+          }
+        }
+        document.write("<br />");
+      }
+
+      document.write("<h2> 역직각삼각형</h2>");
+      for (let i = 0; i < 5; i++) {
+        for (let j = 5; j > i; j--) {
+          document.write("★");
+        }
+        document.write("<br />");
+      }
+
+      document.write("<h2>피라미드!!</h2>");
+      for (let i = 0; i < 5; i++) {
+        // i = 0
+        for (let j = 5; j > i + 1; j--) {
+          // 공백찍기
+          // i = 0, j = 5, 4, 3, 2, -> 4번 반복
+          // i = 1, j = 5, 4, 3     -> 3번 반복
+          documet.write("&nbsp;&nbsp;&nbsp;");
+        }
+
+        for (let k = 0; k < 2 * i + 1; k++) {
+          document.write("*");
+        }
+        document.write("<br / >");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

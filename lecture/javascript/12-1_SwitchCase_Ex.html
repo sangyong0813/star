@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오늘 저녁은 모먹지?</title>
+    <script>
+      window.onload = function () {
+        let randNum = 0;
+        let foodName = "";
+
+        randNum = Math.floor(Math.random() * 7 + 1);
+        console.log(randNum);
+        switch (randNum) {
+          case 1:
+            foodName = "짜장면";
+            foodImg = "pic/blacknoodle.jpg";
+            break;
+          case 2:
+            foodName = "김치찌개";
+            foodImg = "pic/kimchisoup.jpg";
+            break;
+          case 3:
+            foodName = "돈까스";
+            foodImg = "pic/cutlet.jpg";
+            break;
+          case 4:
+            foodName = "햄버거";
+            foodImg = "pic/buger.jpg";
+            break;
+          case 5:
+            foodName = "피자";
+            foodImg = "pic/pizza.jpg";
+            break;
+          case 6:
+            foodName = "치킨";
+            foodImg = "pic/chicken.jpg";
+            break;
+          case 7:
+            foodName = "국밥";
+            foodImg = "pic/gukbap.jpg";
+            break;
+        }
+        console.log(foodName);
+
+        document.getElementById("foodName").innerHTML = foodName;
+        document.getElementById("foodImg").src = foodImg;
+      };
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .main {
+        text-align: center;
+        width: 800px;
+        height: 600px;
+        background-color: blanchedalmond;
+        border: 2px solid cadetblue;
+        margin: 20px auto;
+      }
+      #foodImg {
+        width: 600px;
+        height: 400px;
+        border: 5px solid cadetblue;
+        border-radius: 20px 20px 20px 20px;
+      }
+      #foodName {
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+
+        margin: 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1 class="title">오늘의 추천 메뉴</h1>
+      <div id="foodName">음식이름</div>
+      <div class="food">
+        <img src="" id="foodImg" alt="음식사진" />
+      </div>
+    </div>
+  </body>
+</html>

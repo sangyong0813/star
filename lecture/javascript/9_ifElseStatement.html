@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>If ~ Else 문</title>
+    <script>
+      // 사용자에게 숫자를 입력받아 숫자이면 "숫자"라고 출력하는 프로그램 작성
+      // 1) 사용자에게 입력 받는다.
+
+      let data = window.prompt("숫자를 입력하세요!", "0");
+      console.log(data);
+      // console.log(isFinite(data));
+
+      // 2) 입력한 값이 순자인지 아닌지 판별
+      let result = ""; //초기화
+      if (isFinite(data)) {
+        // data가 유한숫자이면 수행할 문장
+        result = " 숫자 ";
+      } else {
+        result = " 문자 ";
+      }
+
+      document.write(`${data}는 ${result}입니다.`);
+    </script>
+  </head>
+  <body></body>
+</html>

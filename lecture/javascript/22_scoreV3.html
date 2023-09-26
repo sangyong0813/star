@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1차원 배열을 이용한 성적표</title>
+    <script>
+      // 사용자에게 학생 1명의 이름, 국어, 영어, 수학 점수를 입력받아,
+      // 총점, 평균, 학점을 구해서 테이블로 출력하는 프로그램을 작성하세요.
+      // 배열이용!
+      window.onload = function () {
+        let score = [];
+        let lengend = ["이름", "국어", "영어", "수학", "총점", "평균", "학점"];
+        // score[0] = window.prompt("이름을 입력하세요", "뚱이");
+        // score[1] = window.prompt("국어 점수을 입력하세요", "90");
+        // score[2] = window.prompt("영여 점수을 입력하세요", "70");
+        // score[3] = window.prompt("수학 점수을 입력하세요", "80");
+
+        for (let i = 0; i < 4; i++) {
+          score[i] = window.prompt(`${lengend[i]} 데이터를 입력하시오`);
+        }
+
+        score[4] = Number(score[1]) + Number(score[2]) + Number(score[3]);
+        score[5] = Math.floor(Number(score[4]) / 3);
+
+        switch (Math.floor(score[5] / 10)) {
+          case 10:
+          case 9:
+            score[6] = "A";
+            break;
+          case 8:
+            score[6] = "B";
+            break;
+          case 7:
+            score[6] = "C";
+            break;
+          case 6:
+            score[6] = "D";
+            break;
+          default:
+            score[6] = "F";
+        }
+
+        console.log(score);
+
+        let output = "<table><tr>";
+        for (let i = 0; i < 7; i++) {
+          output += `<th>${lengend[i]}</th>`;
+        }
+        output += "</tr><tr>";
+        for (let i = 0; i < 7; i++) {
+          output += `<td>${score[i]}</td>`;
+        }
+        output += "</tr></table>";
+        document.getElementById("output").innerHTML = output;
+      };
+    </script>
+    <style>
+      #output table,
+      tr,
+      td,
+      th {
+        border: 2px solid black;
+        border-collapse: collapse;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>성적표 v3.0</h1>
+    <div id="output"></div>
+  </body>
+</html>

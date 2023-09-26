@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //반복문(for) - 정해진 횟수 만큼 반복 시킬때
+
+        /* 
+        for (초기값; 조건식; 증감식) {
+
+        }
+        */
+        
+        // i =0,1,2,3,4
+
+        for(let i = 10; i < 15; i++) {
+            document.write("<div> 안녕하세요~! (i = "+ i +") </div>");
+        }
+
+        // -------------------------------------------------------------
+        // while 반복문
+        // 유저에게 숫자를 입력 받아 양수를 입력하면 그 값을 그대로 출력하고,
+        // 그 값이 음수면, 다시 입력받도록 하자.
+        /*
+        while (조건식) {
+            // 조건식이 참일동안 반복 수행할 명령문들;
+        }
+        */
+
+        // let userNum = window.prompt("양수를 입력하세요.....");
+        // while (userNum < 0) {
+        //     userNum = window.prompt("양수를 입력하세요.....");
+        // }
+        // document.write("유저가 입력한 숫자 : " + userNum);
+
+        /* do {
+            조건식이 참일 동안 반복 수행할 명령문들;
+        } while (조건식); 
+        */
+
+        let userNum = 0;
+        do {
+            userNum = window.prompt("양수를 입력하세요.....");
+        } while (userNum < 0);
+        document.write("유저가 입력한 숫자 : " + userNum);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

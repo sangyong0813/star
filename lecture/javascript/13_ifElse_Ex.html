@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>비만도 측정(BMI)</title>
+    <script>
+      window.onload = function () {
+        let userTot = 0;
+        let userBmi = "";
+
+        let userCm = Number(window.prompt("키를 입력하세요!")) / 100;
+        let userKg = Number(window.prompt("몸무게를 입력하세요!"));
+
+        userTot = userKg / (userCm * userCm); //.toFixed(1);
+        userTot = Math.round(userTot * 100) / 100.0;
+
+        console.log(userCm, userKg, userTot);
+
+        if (userTot >= 25.0) {
+          userBmi = "비만 입니다.";
+          document.getElementById("userBmi").style.color = "red";
+        } else if (userTot >= 23.0 && userTot < 25.0) {
+          userBmi = "과체중 입니다.";
+          document.getElementById("userBmi").style.color = "orange";
+        } else if (userTot >= 18.6 && userTot < 23.0) {
+          userBmi = "정상 입니다.";
+          document.getElementById("userBmi").style.color = "green";
+        } else {
+          userBmi = "저체중 입니다.";
+          document.getElementById("userBmi").style.color = "blue";
+        }
+
+        document.getElementById("userTot").innerHTML = userTot;
+        document.getElementById("userBmi").innerHTML = userBmi;
+      };
+    </script>
+    <style></style>
+  </head>
+  <body>
+    <div class="container">
+      <div>My BMI : <span id="userTot"></span></div>
+      <div id="userBmi">BMI는?</div>
+    </div>
+  </body>
+</html>

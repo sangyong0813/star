@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열을 이용한 간단한 슬라이드 만들기</title>
+    <script>
+      let images = new Array();
+      images[0] = "pic/pizza.jpg";
+      images[1] = "pic/buger.jpg";
+      images[2] = "pic/gukbap.jpg";
+      images[3] = "pic/chicken.jpg";
+      images[4] = "pic/kimchisoup.jpg";
+      console.log(images);
+
+      let index = 0; // 현재 이미지 슬라이더에 출력되는 이미지의 요소 번호
+
+      function prev() {
+        // 이전 이미지를 보여주는 함수
+        // alert("!");
+        if (index == 0) {
+          index = images.length; //5
+        }
+
+        document.getElementById("imgSlider").src = images[--index];
+        console.log(index);
+      }
+
+      function next() {
+        // 다음 이미지를 보여주는 함수
+        // alert("!");
+
+        if (index == images.length) {
+          index = 0;
+        }
+        document.getElementById("imgSlider").src = images[index++];
+        console.log(index);
+      }
+
+      function auto() {
+        idInterval = window.setInterval(next, 1000);
+      }
+
+      function autoStop() {
+        clearInterval(idInterval);
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <img src="pic/pizza.jpg" id="imgSlider" />
+    </div>
+    <div>
+      <button onclick="prev();">이전</button>
+      <button onclick="next();">다음</button>
+      <button onclick="auto()">자동시작</button>
+      <button onclick="autoStop()">자동정지</button>
+    </div>
+  </body>
+</html>

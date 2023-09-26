@@ -1,0 +1,82 @@
+body {
+    background-color: #272525;
+    color: white;
+}
+
+.container {
+    background-color: #464444;
+    max-width: 800px;
+    margin : 50px auto;
+    padding : 20px;
+    box-shadow: 0 5px 20px #beb6b6;
+}
+
+.header {
+    text-align: center;
+}   
+
+.header h3 {
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0px 15px #beb6b6;
+}
+
+.info, .workExp {
+    padding: 30px;
+}
+
+h2 {
+    background-color: #757272;
+    padding: 10px;
+    margin: 20px 0;
+    font-size: 20px;
+    border-radius: 0 50px 50px 0;
+}
+
+.containerSkills {
+    width: 100%;
+    color: #272525;
+    background-color: #ddd;
+    margin-left: 25px;
+    
+}
+
+.skills {
+    text-align: right;
+    font-weight: bold;
+}
+
+.html {
+    width: 90%;
+    background-color: rgb(172, 166, 166);
+}
+
+.css {
+    width: 80%;
+    background-color: rgb(172, 166, 166);
+}
+
+.js {
+    width: 90%;
+    background-color: rgb(172, 166, 166);
+}
+
+
+.workExp h3 {
+    padding-left: 25px;
+}
+
+.workExp p {
+    padding-left: 35px;
+}
+
+.workExp ul {
+    padding-left: 70px;
+}

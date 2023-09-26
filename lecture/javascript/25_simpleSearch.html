@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>탐색 (데이터 탐색) : 순차 탐색</title>
+    <script>
+      //  1) 방 50개 짜리 1차원 배열을 만들고, 그방안에
+      //  1~200까지의 랜덤한 수를 넣고,
+      // 2) 유저가 어떤수를 입력했을 때, 유저가 입력한 값이 있다면,
+      // 입력한 수가 있는 곳을 알려주고,
+      // 없다면, "찾지 못했다!" 라고 출력하는 프로그램을 작성.
+
+      // 1)
+      window.onload = function () {
+        let rooms = new Array(50);
+        for (let i = 0; i < rooms.length; i++) {
+          rooms[i] = Math.floor(Math.random() * 100 + 1);
+          console.log(rooms);
+        }
+
+        // 1-1) rooms 배열을 table로 출력하기 (5행 10열)
+        let roomsTable = "<table>";
+        let cnt = 0;
+        for (let r = 0; r < 5; r++) {
+          roomsTable += "<tr>";
+          for (let c = 0; c < 10; c++) {
+            roomsTable += `<td>${rooms[cnt++]}</td>`;
+          }
+          roomsTable += "</tr>";
+        }
+        roomsTable += "</table>";
+        // for (let i = 0; i < 10; i++) {
+        //   roomsTable += `<td>${rooms[i]}</td>`;
+        // }
+        // roomsTable += "</tr><tr>";
+        // for (let i = 10; i < 20; i++) {
+        //   roomsTable += `<td>${rooms[i]}</td>`;
+        // }
+        // roomsTable += "</tr><tr>";
+        // for (let i = 20; i < 30; i++) {
+        //   roomsTable += `<td>${rooms[i]}</td>`;
+        // }
+        // roomsTable += "</tr><tr>";
+        // for (let i = 30; i < 40; i++) {
+        //   roomsTable += `<td>${rooms[i]}</td>`;
+        // }
+        // roomsTable += "</tr><tr>";
+        // for (let i = 40; i < 50; i++) {
+        //   roomsTable += `<td>${rooms[i]}</td>`;
+        // }
+        // roomsTable += "</tr></table>";
+
+        document.getElementById("roomsTable").innerHTML = roomsTable;
+
+        let userNum = Number(window.prompt("찾을 숫자를 입력하세요."));
+        // if (rooms.indexOf(userNum) == -1) {
+        //   document.getElementById("result").innerHTML = "찾는 수가 없습니다!";
+        // } else {
+        //   document.getElementById("result").innerHTML =
+        //     "찾는 수는 " + rooms.indexOf(userNum) + "번째에 있습니다!";
+        // }
+        let isFind = false;
+        let result = "";
+        for (let i = 0; i < rooms.length; i++) {
+          if (rooms[i] == userNum) {
+            result += i + ", ";
+            isFind = true;
+          }
+        }
+        if (isFind == false) {
+          document.getElementById("result").innerHTML = `${userNum}을 찾을 수 없습니다`;
+        } else {
+          document.getElementById("result").innerHTML = `${userNum}은 ${result}번째 있습니다.`;
+          let tds = document.getElementsByTagName("td");
+          console.log(tds[0].innerHTML);
+          for (item of tds) {
+            console.log(item);
+            if (userNum == item.innerHTML) {
+              item.style.backgroundColor = "yellow";
+              item.innerHTML = "★" + userNum;
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      #roomsTable table,
+      tr,
+      td {
+        border: 2px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        padding: 0px 5px;
+      }
+
+      #result {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="roomsTable"></div>
+    <div id="result"></div>
+  </body>
+</html>

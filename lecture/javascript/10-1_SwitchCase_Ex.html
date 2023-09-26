@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let stuName = window.prompt("이름을 입력하세요", "뚱이");
+      let kor = Number(window.prompt("국어 점수를 입력하세요", "80"));
+      let eng = Number(window.prompt("영어 점수를 입력하세요", "90"));
+      let math = Number(window.prompt("수학 점수를 입력하세요", "70"));
+
+      console.log(stuName, kor, eng, math);
+
+      let tot = kor + eng + math;
+      let avg = Math.floor(tot / 3);
+      console.log(tot, avg);
+
+      let grade = "";
+
+      document.write(`<h2>이름 : ${stuName} , 총점 : ${tot}점, 평균 : ${avg}점</h2>`);
+
+      switch (avg / 10) {
+        case 10:
+        // grade = "A";
+        // break;
+        case 9:
+          grade = "A";
+          break;
+        case 8:
+          grade = "B";
+          break;
+        case 7:
+          grade = "C";
+          break;
+        case 6:
+          grade = "D";
+          break;
+        default:
+          grade = "F";
+      }
+
+      document.write(`<h1 class=title">성적표</h1>`);
+      let output = `<table class="score">
+        <tr>
+        <th>이름</th>
+        <th>국어</th>
+        <th>영어</th>
+        <th>수학</th>
+        <th>총점</th>
+        <th>평균</th>
+        <th>학점</th>
+        </tr>
+        <tr>
+        <td>${stuName}</td>
+        <td>${kor}</td>
+        <td>${eng}</td>
+        <td>${math}</td>
+        <td>${tot}</td>
+        <td>${avg}</td>
+        <td>${grade}</td>
+        </tr>
+        </table>
+        `;
+      document.write(output);
+      console.log(grade);
+    </script>
+    <style>
+      .score,
+      td,
+      th,
+      tr {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        padding: 3px 10px;
+      }
+
+      th {
+        background-color: lightgrey;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
