@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date 객체</title>
+    <script>
+      let date = new Date(); // 생성자를 이용해서 날짜 객체 생성
+      document.write(`현재: ${date} <br />`);
+      document.write(`현재: ${date.toLocaleTimeString()} <br />`);
+      document.write(`현재: ${date.toLocaleDateString()} <br />`);
+      document.write(`현재: ${date.toDateString()} <br />`);
+      document.write(`현재: ${date.getTime()} <br />`); //1696557701376 타임스탬프 값을 출력
+
+      document.write(`현재: ${date.getFullYear()} <br />`);
+      document.write(`현재: ${date.getDate()} <br />`);
+      document.write(`현재: ${date.getDay()} <br />`); // 0: 일요일
+      document.write(`현재: ${date.getMonth()} <br />`);
+
+      //  요일을 담은 배열을 만들어서 오늘의 요일을 출력하자
+      let yoil = ["일", "월", "화", "수", "목", "금", "토"];
+      document.write(`현재: ${yoil[date.getDay()]} <br />`); // 0: 일요일
+      document.write(`현재 시간: ${date.getHours()} <br />`);
+      document.write(`현재 분: ${date.getMinutes()} <br />`);
+      document.write(`현재 초: ${date.getSeconds()} <br />`);
+
+      //setter
+      let date2 = new Date();
+      console.log(typeof date2);
+
+      document.write(`현재 : ${date2} <br/>`);
+      date2.setDate(25);
+      document.write(`setDate(25) : ${date2} <br/>`);
+      date2.setHours(1, 10, 11);
+      document.write(`setHours(1, 10, 11) : ${date2} <br/>`);
+      //
+      let myBirdDay = new Date(1997, 7, 13);
+      document.write(`생일 : ${myBirdDay} <br/>`);
+
+      //타임 스템프 값 : 1960년 1월 1일
+      let pastTime = new Date(1960, 0, 1);
+      document.write(`1960년 1월 1일 : ${pastTime.getTime()} <br/>`);
+
+      // 시계만들기
+      setInterval(function () {
+        let now = new Date();
+        document.getElementById("clock").innerHTML = now.toLocaleTimeString();
+      }, 1000);
+    </script>
+  </head>
+  <body>
+    <div id="clock"></div>
+  </body>
+</html>

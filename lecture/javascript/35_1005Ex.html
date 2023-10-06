@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1~100랜덤수 99개 배열 안에 넣고 없는 수 찾기</title>
+    <script>
+      // 99개의 값 배열
+      let data = new Array(99);
+      let tmp = 0;
+
+      // 무작위 수 99개 중복없이 배열에 저장
+      for (let i = 0; i < data.length; i++) {
+        do {
+          tmp = Math.floor(Math.random() * 100 + 1);
+        } while (isDuplicate());
+        data[i] = tmp;
+      }
+      function isDuplicate() {
+        for (let item of data) {
+          if (tmp == item) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      console.log("정렬 전");
+      console.log(data);
+
+      function sorAsc(arr) {
+        // 오름차순 정렬
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] > arr[j]) {
+              let num = arr[j];
+              arr[j] = arr[i];
+              arr[i] = num;
+            }
+          }
+        }
+        return arr; //오름차순 정렬된 배열을 반환한다.
+      }
+
+      // data = sorAsc(data);
+      data.sort((a, b) => b - a); // 내림차 정렬 sort 함수
+      console.log("정렬 후");
+
+      console.log(data);
+
+      // 100중 없는 숫자 찾기
+
+      function findNum(a) {
+        for (let item of data) {
+          if (a == item) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      for (let i = 1; i < 101; i++) {
+        if (findNum(i) == true) {
+          document.write(i);
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

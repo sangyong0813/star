@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function testReturn() {
+        let sum = 0;
+
+        for (let i = 0; i < 10; i++) {
+          if (sum > 10) {
+            return;
+          }
+          sum += i;
+          console.log(i, sum);
+        }
+        console.log("여기까지 실행될까요?");
+      }
+      testReturn();
+
+      // forEach는 break;, return 적용이 안됨.
+      function testReturnForEach() {
+        let arr = [1, 2, 3, 4, 5];
+        arr.forEach(function (item, index) {
+          if (item == 3) {
+            return;
+          }
+          console.log(index, item);
+        });
+        console.log("여기까지 실행될까요?");
+      }
+      testReturnForEach();
+    </script>
+  </head>
+  <body></body>
+</html>

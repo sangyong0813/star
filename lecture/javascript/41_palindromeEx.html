@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회문 검증</title>
+    <script>
+      // 연습문제)
+      // 앞에서 읽으나, 뒤에서 읽으나 똑같은 단어를 회문이라한다.
+      // 영어로는 palindrome이라 하는데,
+      // 유저에게 문자열을 입력받아 입력된 문자가 회문인지 아닌지 판단하는 함수를 만드세요.
+      // 입력된 문자열이 회문이면 true, 아니면 false를 반환하도록 만드세요 (힌트. 종이를 반으로 접는것)
+      function testButton() {
+        let inputData = document
+          .getElementById("palindromeData")
+          .value.replace(/\s/g, "")
+          .toLocaleLowerCase();
+        console.log(inputData);
+        let reverseData = inputData.split("").reverse().join("");
+        console.log(reverseData);
+        if (inputData == reverseData) {
+          window.alert("회문(palindrome)입니다!!");
+        } else {
+          window.alert("회문(palindrome)이 아닙니다!!");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <div>
+        <input type="text" id="palindromeData" />
+        <button onclick="testButton()">확인</button>
+      </div>
+      <div></div>
+    </div>
+  </body>
+</html>

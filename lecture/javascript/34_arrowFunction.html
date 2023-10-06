@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>화살표 함수 (Arrow Function)</title>
+    <script>
+      // =>
+      // 선언식
+      // function greeting() {
+      //   return "Hello";
+      // }
+      // greeting(); // 호출
+
+      //  함수 표현식 + 화살표 함수
+      // document.write(greeting()); // 에러 :  Cannot access 'greeting' before initialization
+
+      const greeting = () => "Hello <br/>";
+      document.write(greeting());
+
+      // function hi(name){
+      //   name + "님 안녕하세요<br/>";
+      // }
+      const hi = (name) => name + "님 안녕하세요 <br />";
+      // 인자가 하나라면 괄호는 생략가능
+      document.write(hi("뚱이"));
+
+      // function sum (a,b) {
+      //   return a+b;
+      // }
+
+      const sum = (a, b) => a + b;
+      document.write(sum(2, 3) + "<br />");
+
+      // function hi2(name) {
+      //   if (isFinite(name)) {
+      //     return "문자열을 입력하세요!";
+      //   }
+      //   return name + "님 안녕하세요<br / >";
+      // }
+
+      const hi2 = (name) =>
+        isFinite(name) ? "문자열을 입력하세요!" : name + "님 안녕하세요<br / >";
+      document.write(hi2("스펀지밥"));
+
+      let age = prompt("나이를 입력하세요.", "0");
+      let welcome = age >= 19 ? () => alert("환영합니다") : () => alert("안녕히가세요");
+
+      welcome();
+    </script>
+  </head>
+  <body></body>
+</html>

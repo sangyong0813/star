@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>정규 표현식 (Regular Expression)</title>
+    <script>
+      // 정규 표현식 : 특정 패턴의 문자열을 찾기 위한 표현방식.
+      // 예) 모바일 번호 : 010-1234-1234
+
+      let regEx = /\d{3}-\d{4}-\d{4}/;
+      console.log(regEx.test("010-2460-1234"));
+
+      // 이메일 정규 표현식
+      function checkEmail() {
+        let emailRegExp = /[\w\-\.]+\@[\w\-\.]+/g;
+        let pd = document.getElementsByTagName("input")[0].value;
+        console.log(pd);
+        if (emailRegExp.test(pd)) {
+          window.alert("올바른 이메일 주소입니다.");
+        } else {
+          window.alert("잘못된 이메일 주소입니다.");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    email : <input type="text" id="input" />
+    <button onclick="checkEmail();">확인</button>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내장 함수</title>
+    <script>
+      // 1. eval() 자바스크립트 명령어를 실행한다.
+      let result = eval("3 * 2 + 5");
+      document.write(result + "<br / >");
+
+      let str1 = "var num1 = 10";
+      let str2 = "var num2 = 20";
+      eval(str1);
+      eval(str2);
+      // console.log(num1 + num2);
+
+      // 2. parseInt() : 문자열을 정수로 변환이 되는 부을 반환
+      console.log(parseInt("3.14")); // 3
+      console.log(parseInt("가나다")); // NaN
+      console.log(parseInt("3.14입니다.")); // 3
+      console.log(parseFloat("3.141592입니다.")); // 3.141592
+
+      // let userNum = prompt("숫자를 입력하세요."); // 취소버튼 클릭하면 null 반환
+      // console.log(parseInt(userNum)); // Nan 반환
+
+      // 3. inNaN() : 숫자인지 아닌지 판별. 숫자면 false
+      console.log(isNaN(3)); // false
+
+      // 4. isFinite() : 유한(숫자) 인지 아닌지 판별.
+      console.log(isFinite(1 / 0)); //false
+      console.log(isFinite(3.14)); // true
+      console.log(isFinite("안녕")); //false
+
+      // 5. 인코딩, 디코딩 함수
+      let qStr = "자바 Script()-_.^~*!'#";
+      console.log(encodeURIComponent(qStr));
+      console.log(decodeURIComponent(encodeURIComponent(qStr)));
+    </script>
+  </head>
+  <body></body>
+</html>

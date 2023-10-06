@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let lotto = new Array(6);
+      let tmp = 0;
+
+      for (let i = 0; i < lotto.length; i++) {
+        do {
+          tmp = Math.floor(Math.random() * 45) + 1;
+        } while (isDuplicate());
+        lotto[i] = tmp;
+      }
+      console.log(lotto);
+      function isDuplicate() {
+        for (let item of lotto) {
+          console.log(tmp, item);
+          if (tmp == item) {
+            // 중복된 수는 경우에, 반환값(true)를 가지고, 함수를 호출한 곳으로 돌아감.
+            return true;
+          }
+        }
+        return false; // 중복이 없는 경우에, 반환값(false)를 가지고, 함수를 호출한 곳으로 돌아감.
+      }
+
+      lotto = sorAsc(lotto);
+
+      let divBox = "";
+      for (let i in lotto) {
+        let boxId = "box" + i;
+        let color = "";
+        color = pickColor(lotto[i]);
+        divBox += `<div class="box" id="${boxId}" style = "background-color : ${color};">${lotto[i]}</div>`;
+      }
+      window.onload = function () {
+        document.getElementById("lotto").innerHTML = divBox;
+      };
+      function pickColor(lotto) {
+        if (lotto > 0 && lotto < 10) {
+          color = "yellow";
+        } else if (lotto >= 10 && lotto < 20) {
+          color = "blue";
+        } else if (lotto >= 20 && lotto < 30) {
+          color = "red";
+        } else if (lotto >= 30 && lotto < 40) {
+          color = "gray";
+        } else {
+          color = "green";
+        }
+        return color;
+      }
+
+      function sorAsc(arr) {
+        // 오름차순 정렬
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] > arr[j]) {
+              let num = arr[j];
+              arr[j] = arr[i];
+              arr[i] = num;
+            }
+          }
+        }
+        return arr; //오름차순 정렬된 배열을 반환한다.
+      }
+    </script>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        float: left;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 100px;
+        font-size: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lotto Numbers</h1>
+    <div id="lotto"></div>
+  </body>
+</html>

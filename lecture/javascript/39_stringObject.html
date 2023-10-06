@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 문자열 객체의 생성
+      let str = new String("대한민국");
+      console.log(str);
+      console.log(typeof str);
+      console.log(str[0]);
+      // str[1] = "핸"; //수정불가
+
+      console.log(str);
+      let str1 = "대한민국";
+      console.log(str1);
+      console.log(typeof str1);
+      console.log(str1[1]);
+
+      str = "대한민국 우리나라 좋은나라";
+      document.write(str + "<br />");
+      document.write(str.charAt(2) + "<br />");
+      document.write(str.concat(" ", " 좋아요" + "<br />")); // 공백은 한 칸만 적용이 된다.
+
+      // indexOf : 일치하는 첫번째 인덱스를 반환, 없으면 -1 반환, 왼쪽부터 검색
+      document.write(str.indexOf("나") + "<br />");
+      document.write(str.indexOf("나", 8) + "<br />"); // str.indexOf(searchValue[, fromIndex])
+      document.write(str.indexOf("나다") + "<br />"); // -1
+
+      // lastIndexOf() : 오른쪽부터 검색(인덱스는 왼쪽부터의 인덱스 값을 반환)
+      document.write(str.lastIndexOf("민국") + "<br />");
+      document.write(str.lastIndexOf("나") + "<br />");
+
+      // substr() : str.substr(start[, length])
+      document.write(str.substr(5, 4) + "<br />"); // 인덱스 5부터 4개 (우리나라)
+      document.write(str.substr(10, 2) + "<br />"); // 인덱스 10부터 2개 (좋은)
+
+      // substring() : str.substring(indexStart[, indexEnd]) :마지막 인덱스 (포함하지 않음.)
+      document.write(str.substring(5, 9) + "<br />");
+
+      let statement = "I am a student";
+      document.write(statement.toLocaleLowerCase() + "<br />");
+      document.write(statement.toLocaleUpperCase() + "<br />");
+
+      // statement 에서 student라는 단어를 추출해서 대문자로 변환하여 출력하세요.
+
+      document.write(statement.substring(7).toLocaleUpperCase() + "<br />");
+      document.write(statement.substr(7, 7).toLocaleUpperCase() + "<br />");
+      document.write(
+        statement.substr(statement.indexOf("student"), "student".length).toLocaleUpperCase() +
+          "<br />"
+      );
+
+      let statement2 = " 홍 길 동 ";
+      document.write(statement2 + "<br />");
+      console.log(statement2.trim()); // 앞,뒤 공백제거
+      console.log("홍길동" == "홍 길 동"); //false
+      document.write(statement2.replaceAll(" ", "") + "<br />");
+
+      // 정규식 (Regular Expression)
+      document.write(statement2.replace(/\s/g, "") + "<br />");
+
+      //james를 첫 글자(j)만 대문자로 바꿔라
+      let statement3 = "james";
+      document.write(statement3.replace("j", "J") + "<br />");
+    </script>
+  </head>
+  <body></body>
+</html>

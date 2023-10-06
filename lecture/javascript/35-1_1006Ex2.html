@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // pool[0] = 1
+      // pool[1] = 2
+      //  ...
+      // poll[45] = 45
+
+      let pool = new Array(45);
+      let lotto = new Array(6);
+
+      // pool배열에 1~45 넣기
+      for (let i = 0; i < pool.length; i++) {
+        pool[i] = i + 1;
+      }
+      console.log(pool);
+
+      for (let i = 0; i < lotto.length; i++) {
+        ind = Math.floor(Math.random() * (45 - i));
+        lotto[i] = pool[ind];
+        pool.splice(ind, 1); //pool 배열에서 1개 방을 삭제
+
+        console.log(pool.length, ind);
+      }
+      console.log(lotto);
+    </script>
+  </head>
+  <body></body>
+</html>

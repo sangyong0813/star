@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로또 번호 생성기</title>
+    <script>
+      // 1 ~ 45까지의 랜덤한 정수를 6개 뽑아서 배열에 담는다.
+      // 중복은 허용하지 않는다.
+      // 로또 번호를 출력하세요.
+
+      // 1) 1 ~ 45사이의 랜덤 수를 뽑는다.
+      // 2) 중복한 수를 나오지 않게(같은 번호면 다시 뽑기)
+      window.onload = function () {
+        let lotto = [];
+
+        for (let i = 0; i < 6; i++) {
+          let num = Math.floor(Math.random() * 45 + 1);
+          if (sameNum(num) == true) {
+            i--;
+          } else {
+            lotto.push(num);
+          }
+        }
+
+        console.log(lotto);
+
+        function sameNum(a) {
+          for (let i = 0; i < lotto.length; i++) {
+            if (lotto[i] == a) {
+              console.log(lotto[i], a);
+              return true;
+            }
+          }
+        }
+
+        let lottoTable = "<table><tr>";
+        for (let i = 0; i < lotto.length; i++) {
+          lottoTable += `<td>${lotto[i]}</td>`;
+        }
+        lottoTable += "</tr></table>";
+
+        document.getElementById("table").innerHTML = lottoTable;
+      };
+    </script>
+    <style>
+      td {
+        border: 2px solid lightsalmon;
+        border-radius: 100px 100px 100px 100px;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        background-color: darkcyan;
+        color: white;
+        font-size: larger;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div id="table"></div>
+    </div>
+  </body>
+</html>

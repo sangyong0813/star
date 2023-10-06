@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사용자 정의 함수의 기본 운용법</title>
+    <script>
+      function sayHello() {
+        document.write("Hello");
+      }
+
+      function sayHi(times) {
+        console.log(times);
+        for (let i = 0; i < times; i++) {
+          document.write("Hi");
+        }
+      }
+
+      function addTwoNumber(num1, num2) {
+        document.write(num1 + num2);
+      }
+
+      sayHello();
+      document.write("<hr />");
+      addTwoNumber(1, 2);
+      document.write("<hr />");
+      sayHi(3);
+
+      // console.log(num1); // 에러 : undefined
+
+      function addTwoNumberWithReturnValue(num1, num2) {
+        //return num1 + num2
+        let result = num1 + num2;
+        return result;
+      }
+
+      console.log(addTwoNumberWithReturnValue("안녕", "하세요"));
+
+      // 두개의 문자열을 받아서 문자열을 하나로 합쳐서 반환하는 함수를 만들어보자
+
+      function concatString(str1, str2) {
+        return str1 + str2;
+      }
+      document.write("<hr />");
+      document.write(concatString("안녕", "하세여"));
+
+      // 함수 인자의 기본값을 줄 수 있다.
+
+      function sum(a, b = 20) {
+        console.log("sum함수 :", a, b, a + b);
+      }
+      sum(20);
+      sum(30, 40);
+
+      function sum2(a, b = 5, c = 10) {
+        console.log("sum2함수 : ", a, b, c, a + b + c);
+      }
+      sum2(10);
+      sum2(10, 20);
+      sum2(10, 20, 30);
+
+      // 지역변수
+      document.write("<hr />");
+
+      let gNum = 100; // 전역변수
+      test();
+      document.write(gNum);
+
+      function test() {
+        let gNum = 200;
+        return gNum;
+      }
+
+      let gNum2 = 100;
+      gNum2 = test();
+      document.write("<hr />");
+      document.write(gNum2);
+
+      // 익명함수
+      let add = function (a, b) {
+        return a + b;
+      };
+
+      let result1 = add(100, 200);
+      console.log(result1);
+
+      // 즉시실행 함수
+      let add2 = (function () {
+        return 300 + 400;
+      })();
+      console.log(add2);
+
+      let add3 = (function (a, b) {
+        return a + b;
+      })(1000, 2000);
+      console.log(add3);
+
+      // 밖에서는 안이 안보이고
+      // 안에서는 밖을 볼 수 있다.
+      let gVar = "global"; // 전역변수
+      function myFunc() {
+        let lVar = "local"; // myFunc() 함수의 지역변수
+        console.log(lVar);
+        console.log(gVar);
+        function innerFunc() {
+          console.log(lVar);
+          let innerVar = "inner";
+        }
+        console.log(innerVar); // 에러 : innerVar is not defined
+        innerFunc();
+      }
+      myFunc();
+    </script>
+  </head>
+  <body></body>
+</html>

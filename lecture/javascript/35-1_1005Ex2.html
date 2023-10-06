@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 1~45사이 랜덤수 6개를 출력
+      // 중복은 허락 x , splice()를 이용
+
+      let data = new Array(6);
+      let tmp = 0;
+
+      for (let i = 0; i < data.length; i++) {
+        tmp = Math.floor(Math.random() * 45) + 1;
+        data[i] = tmp;
+      }
+      console.log("정렬전!!!");
+
+      console.log(data);
+
+      const changeNum = () => Math.floor(Math.random() * 45) + 1;
+
+      function findNum(a) {
+        for (let i = 0; i < a.length; i++) {
+          for (let j = i + 1; j < a.length; j++) {
+            if (a[i] == a[j]) {
+              console.log(a[i]);
+              data.splice(i, 1, changeNum());
+            }
+          }
+        }
+      }
+      data.sort((a, b) => a - b);
+      findNum(data);
+
+      console.log("정렬후!!!");
+
+      console.log(data);
+    </script>
+  </head>
+  <body></body>
+</html>

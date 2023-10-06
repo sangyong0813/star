@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>재귀함수</title>
+    <script>
+      function recursiveFunc(n) {
+        if (n == 0) {
+          console.log("호출 완료" + n);
+        } else {
+          console.log("호출" + n);
+          recursiveFunc(n - 1);
+        }
+      }
+
+      recursiveFunc(10);
+    </script>
+  </head>
+  <body></body>
+</html>
