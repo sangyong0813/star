@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 생성 : literal</title>
+    <script>
+      let acc = {
+        owner: "홍길동",
+        accNum: "111-023-04-56789",
+        balance: 500,
+        name: "직장인 비과세 예금",
+        bankName: "우리은행",
+
+        checkBalance: function () {
+          return this.balance;
+        },
+
+        deposit: function (money) {
+          this.balance += money;
+        },
+
+        withDraw: function (money) {
+          if (this.balance >= money) {
+            this.balance -= money;
+          } else {
+            window.alert("잔액이 부족합니다!");
+          }
+        },
+      };
+      console.log(acc);
+      document.write(`예금주 : ${acc.owner} <hr />`);
+      document.write(`예금주 : ${acc.accNum} <hr />`);
+      document.write(`예금주 : ${acc.balance} <hr /> `);
+    </script>
+  </head>
+  <body></body>
+</html>

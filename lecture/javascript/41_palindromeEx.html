@@ -16,7 +16,7 @@
           .value.replace(/\s/g, "")
           .toLocaleLowerCase();
         console.log(inputData);
-        let reverseData = inputData.split("").reverse().join("");
+        let reverseData = inputData.split(/(?:)/u).reverse().join("");
         console.log(reverseData);
         if (inputData == reverseData) {
           window.alert("회문(palindrome)입니다!!");

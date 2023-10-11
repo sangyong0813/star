@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회문(강의답)</title>
+    <script>
+      let str = "";
+      str = "absba";
+      function isPalin(str) {
+        let strHalf = parseInt(str.length / 2);
+        console.log(strHalf);
+        for (let i = 0; i < strHalf; i++) {
+          //i = 0,1
+          if (str[i] == str[str.length - 1 - i]) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
+
+      //추가)  모두 같은 글자를 입력한 경우, 회문이 아니라고 판단
+
+      function areSame(str) {
+        if (str.length <= 1) {
+          // 문자열이 1이하일 경우 모든 문자가 같다고 판단 (로직에 따라서 다름)
+          return true;
+        }
+
+        let char0 = str[0];
+        let char1 = str[1];
+
+        if (char0 !== char1) {
+          return false;
+        }
+
+        let remainStr = str.slice(1);
+        return areSame(remainStr);
+      }
+
+      // 출력
+      if (isPalin(str) == true && areSame(str) == false) {
+        document.write(`입력한 문자열 ${str}은/는 회문입니다. ${isPalin(str) && !areSame(str)}`);
+      } else {
+        document.write(
+          `입력한 문자열 ${str}은/는 회문이 아닙니다. ${isPalin(str) && !areSame(str)}`
+        );
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

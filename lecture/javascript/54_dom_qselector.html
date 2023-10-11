@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        console.log(document.documentElement); // html에 접근
+        console.log(document.head); // head에 접근
+        console.log(document.body); // body에 접근
+        console.log(document.body.style);
+        console.log((document.body.style.backgroundColor = "gray"));
+        console.log(document.getElementsByTagName("p"));
+        let plist = document.getElementsByTagName("p");
+        console.log(plist.length);
+        console.log(plist[1]);
+        for (let p of plist) {
+          p.style.fontSize = "20px";
+        }
+
+        // querySelector, querySelectorAll
+        console.log(document.querySelectorAll(".link")); // 모든 NodeList 가져옴
+        console.log(document.querySelector(".link")); // 제일 처음 노드를 가져옴
+        console.log(document.querySelectorAll("#firstP"));
+        console.log(document.querySelector("#firstP"));
+        let h2list = document.querySelectorAll("h2:nth-of-type(2n+1)");
+        console.log(h2list);
+
+        for (let h of h2list) {
+          h.style.color = "#eee";
+          h.style.backgroundColor = " blue";
+        }
+
+        let pQsel = document.querySelectorAll("p");
+        let pGetEl = document.getElementsByTagName("p");
+
+        console.log(pQsel);
+        console.log(pGetEl);
+
+        // 새로운 p태그를 넣어
+        let newP = document.createElement("p");
+        let newText = document.createTextNode("New Paragraph");
+        newP.appendChild(newText);
+        document.body.appendChild(newP);
+
+        console.log(pQsel);
+        console.log(pGetEl);
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Node에 관하여</h1>
+    <div>
+      <h2>title1</h2>
+      <p id="firstP">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolorum suscipit optio non
+        ipsum. Iure, nobis nemo laborum in impedit dolorum quo amet libero, eligendi, molestias fuga
+        nostrum neque excepturi.
+      </p>
+      <h2>title2</h2>
+      <p id="secondP">Second Paragraph</p>
+
+      <h2>title3</h2>
+      <p id="thirdP">Third Paragraph</p>
+
+      <ol>
+        <li><a href="https://www.naver.com" class="link">list1</a></li>
+        <li><a href="https://www.google.com" class="link">list2</a></li>
+        <li><a href="https://www.daum.net" class="link">list3</a></li>
+        <li><a href="https://www.youtube.com" class="link">list4</a></li>
+      </ol>
+    </div>
+  </body>
+</html>

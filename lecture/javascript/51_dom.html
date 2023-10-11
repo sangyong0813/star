@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        let p = document.getElementById("firstP");
+        console.log(p);
+        console.log(p.id);
+        console.log(p.className);
+        console.log(p.tagName);
+        console.log(p.innerHTML);
+        console.log(p.innerText);
+        console.log(p.style);
+        console.log(p.style.color);
+        console.log(p.onclick);
+        console.log(p.children);
+        console.log(p.childElementCount);
+        console.log(p.childNodes);
+      };
+    </script>
+  </head>
+  <body>
+    <!-- <h1>Document Object Model</h1>
+    <p>DOM에 대해서 알아보자.</p> -->
+    <!-- comnet -->
+
+    <h2>DOM객체, p태그의 프로퍼티, 스타일, 이벤트 리스너 등</h2>
+    <hr />
+    <p
+      id="firstP"
+      class="groupP"
+      style="color: blue; border: 2px dotted red"
+      onclick="this.style.backgroundColor = 'yellow';this.style.fontSize='30px';"
+    >
+      이것은 <span>문단태그</span><b>입니다.</b>
+    </p>
+  </body>
+</html>

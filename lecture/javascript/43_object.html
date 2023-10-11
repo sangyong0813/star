@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체의 종류</title>
+    <script>
+      // 1. 내장 객체 : 웹 브라우저가 실행될 때, 웹 브라우저 내에 있는 자바스크립트 실행기에 의해 자동으로 생성되는 객체
+      console.log("! "); // console은 Console 클래스로 부터 미리 만들어진 내장 객체
+      document.write();
+      // window.alert();
+
+      // console = null; // 객체 소멸
+      // console.log();
+
+      // let doc = new Document();
+      // console.log(typeof doc);
+
+      // 2. static 객체 : 웹 브라우저가 실행되어 메모리에 로딩될 때, 함께 로딩되는 객체. 프로그래머가 별도로 생성할 수 없고, 웹브라우저가 종료될 때까지 소멸되지 않는다.
+      // console.log(Math.random());
+      // let math = new Math(); //  Math is not a constructor
+
+      // 3. 인스턴스(instance) 객체 : new 연산자를 통해서 생성해야 사용할 수 있다.
+
+      let arr = new Array();
+      let now = new Date();
+      console.log(now);
+      now = null;
+      console.log(now);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -13,10 +13,43 @@
       // 기념일을 입력받아서,
       // 100일, 200일, 1년이 언제인지
       // 날짜를 알려주는 프로그램을 만드세요.
+      function inputButton() {
+        let userTitle = document.getElementsByTagName("input")[0].value;
+        let userDate = new Date(document.getElementsByTagName("input")[1].value);
+        console.log(userTitle);
+        console.log(userDate);
+
+        let afterDate100 = new Date(
+          userDate.getTime() + 100 * 24 * 60 * 60 * 1000 - 10 * 60 * 60 * 1000
+        );
+        let afterDate200 = new Date(
+          userDate.getTime() + 200 * 24 * 60 * 60 * 1000 - 10 * 60 * 60 * 1000
+        );
+        let afterDate365 = new Date(
+          userDate.getTime() + (365 * 24 * 60 * 60 * 1000 - 10 * 60 * 60 * 1000)
+        );
+        document.getElementById(
+          "userTitle"
+        ).innerHTML = `${userTitle} / ${userDate.toLocaleDateString()}`;
+
+        document.getElementById(
+          "afterDate100"
+        ).innerHTML = `${userTitle}부터 100일 후는 ${afterDate100.toLocaleDateString()}입니다.`;
+        document.getElementById(
+          "afterDate200"
+        ).innerHTML = `${userTitle}부터 200일 후는 ${afterDate200.toLocaleDateString()}입니다.`;
+        document.getElementById(
+          "afterDate365"
+        ).innerHTML = `${userTitle}부터 1년 후는 ${afterDate365.toLocaleDateString()}입니다.`;
+      }
     </script>
     <style>
       #main {
         margin-top: 20px;
+      }
+      #userTitle {
+        text-align: center;
+        font-weight: bold;
       }
     </style>
   </head>
@@ -31,7 +64,15 @@
         <span class="input-group-text">기념일</span>
         <input type="text" class="form-control" placeholder="제목" id="inputTitle" />
         <input type="date" class="form-control" id="inputDate" />
-        <button onclick="inputButto()" class="btn btn-outline-dark">입력</button>
+        <button onclick="inputButton()" class="btn btn-outline-dark">입력</button>
+      </div>
+      <div class="container mt-3">
+        <ul class="list-group">
+          <li id="userTitle" class="list-group-item active">입력한 제목과 날짜</li>
+          <li id="afterDate100" class="list-group-item">100일 후</li>
+          <li id="afterDate200" class="list-group-item">200일 후</li>
+          <li id="afterDate365" class="list-group-item">1년 후</li>
+        </ul>
       </div>
     </div>
   </body>

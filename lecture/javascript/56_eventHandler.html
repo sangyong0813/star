@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function sayHello() {
+        alert("Hello");
+      }
+      window.onload = function () {
+        let btn3 = document.getElementById("btn3");
+        btn3.onclick = sayHello;
+
+        // addEventListner()
+        let btn4 = document.getElementById("btn4");
+        btn4.addEventListener("click", sayHi);
+
+        let btn5 = document.getElementById("btn5");
+        btn5.addEventListener("dblclick", sayHi);
+
+        function sayHi() {
+          alert("Hi!");
+          document.getElementById("btn4").style.backgroundColor = "red";
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="alert('!bnt1');">버튼1</button>
+    <button onclick="sayHello();">버튼2</button>
+    <button id="btn3">버튼3</button>
+    <button id="btn4">버튼4</button>
+    <button id="btn5">버튼5</button>
+  </body>
+</html>

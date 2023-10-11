@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사용자 정의 객체</title>
+    <script>
+      // 통장 계좌를 만들어 보자.
+      let account = new Object(); // account 라는 이름의 객체 생성
+      console.log(typeof account);
+      console.log(account);
+
+      // account 객체의 속성을 부여 해보자.
+      account.owner = "홍길동"; // 예금주
+      account.accNum = "1111-023-04-56789"; // 계좌번호
+      account.balance = 500; // 잔액
+      account.name = "직장인 비과세 예금"; //금융상품 이름
+      account.bankName = "우리은행";
+
+      // 속성부여의 또 다른 방식 : [] 이용
+      account["no"] = "123456";
+      let accNo = "no";
+      account[accNo] = "98765";
+      console.log(account); // 속성 수정
+
+      console.log(account.bankName); // 우리은행
+
+      document.write(`예금주 : ${account.owner} <br />`);
+      document.write(`계좌번호 : ${account.accNum} <br />`);
+      document.write(`잔액 : ${account.balance} <br />`);
+
+      // 예금하기, 인출하기, 잔액조회하기 (동사형태) -> 기능(메서드)를 부여할 수 있다.
+
+      // 예금기능 부여
+      account.deposit = deposit;
+      account.deposit(2000000);
+      console.log(account.balance); // 2000500
+      account.deposit(1000000);
+      console.log(account.balance); // 3000500
+      account.deposit(3000000);
+
+      // 잔액조회하기
+      account.checkBalance = inquiery;
+      account.checkBalance();
+      console.log(account.checkBalance());
+
+      // 인출하기 기능 부여
+      account.withDraw = withDraw;
+      account.withDraw(3000000); // 3000000원 인출
+      console.log(account.balance); // 500
+      account.withDraw(1000000); // alert 메시지
+      console.log(account.balance); // 500
+
+      function deposit(money) {
+        // 예금
+        this.balance += money;
+      }
+
+      function inquiery() {
+        //잔액 조회
+        return this.balance;
+      }
+
+      function withDraw(money) {
+        //인출
+        if (this.balance >= money) {
+          this.balance -= money;
+        } else {
+          window.alert("잔액이 부족합니다.");
+        }
+      }
+
+      // 2번째 계좌를 만들어보자
+      let account2 = new Object();
+      account2.owner = "둘리";
+      account2.accNum = "111-223-12-45454";
+      account2.balance = 0;
+      account2.name = "직장인 비과세 예금";
+      account2.bankName = "우리은행";
+
+      console.log(account2);
+      account2.checkBalance = inquiery;
+      document.write("<hr />");
+      document.write(`예금주 : ${account2.owner} <br />`);
+      document.write(`계좌번호 : ${account2.accNum} <br />`);
+      document.write(`잔액 : ${account2.checkBalance()} <br />`);
+      account2.deposit = deposit;
+      account2.withDraw = withDraw;
+      account2.deposit(1000000);
+      account2.checkBalance();
+      document.write(`잔액 : ${account2.checkBalance()} <br />`);
+      account2.withDraw(500000);
+      document.write(`잔액 : ${account2.checkBalance()} <br />`);
+    </script>
+  </head>
+  <body></body>
+</html>

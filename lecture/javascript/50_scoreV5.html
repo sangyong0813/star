@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>객체를 이용한 성적표 (v5.0)</title>
+    <script>
+      // 학생 객체를 생성, 3명의 학생 객체를 만든다.
+      // 학생의 정보는 input 태그로 입력 받는다.
+      // 이름, 국어, 영어, 수학을 받기
+
+      let scores = [];
+      new Student("");
+      const STU_CNT = 3;
+
+      // 성적 처리 함수
+      function scoreProcess() {
+        //성적 입력받아 처리하는 함수 호출
+        inputScores();
+        // calculator();
+        console.log(scores);
+        // 성적을 테이블로 출력하는 함수 호출
+        outputScores();
+      }
+
+      function inputScores() {
+        // input 테그에 입력된 value 값을 가져온다.
+        for (let i = 0; i < STU_CNT; i++) {
+          let name = document.getElementsByClassName("stuName")[i].value;
+          let kor = parseInt(document.getElementsByClassName("kor")[i].value);
+          let eng = parseInt(document.getElementsByClassName("eng")[i].value);
+          let math = parseInt(document.getElementsByClassName("math")[i].value);
+
+          scores.push(new Student(name, kor, eng, math));
+        }
+      }
+
+      // function calculator() {
+      //   scores.forEach((item) => {
+      //     item.total = item.kor + item.eng + item.math;
+      //     item.avg = Math.floor(item.total / 3);
+      //     switch (Math.floor(item.avg) / 10) {
+      //       case 10:
+      //       case 9:
+      //         item.grade = "A";
+      //         break;
+      //       case 8:
+      //         item.grade = "B";
+      //         break;
+      //       case 7:
+      //         item.grade = "C";
+      //         break;
+      //       case 6:
+      //         item.grade = "D";
+      //         break;
+      //       default:
+      //         item.grade = "F";
+      //     }
+      //   });
+      // }
+
+      function outputScores() {
+        let scoreTable =
+          "<table class = 'table table-bordered table-sm'><thead><tr><th>이름</th><th>국어</th><th>영어</th><th>수학</th><th>총합</th><th>평균</th><th>학점</th></tr></thead><tbody>";
+        scores.forEach((item) => {
+          scoreTable += `<tr class = "stu"><td>${item.name}</td><td>${item.kor}</td><td>${item.eng}</td><td>${item.math}</td><td>${item.total}</td><td>${item.avg}</td><td>${item.grade}</td></tr>`;
+        });
+        scoreTable += "</tbody></table>";
+        document.getElementById("table").innerHTML = scoreTable;
+        document.getElementById("searchStu").style.display = "block";
+      }
+
+      // function findStudent() {
+      //   let tds = document.getElementsByTagName("td");
+      //   let search = document.getElementById("search").value;
+      //   for (item of tds) {
+      //     if (search == item.innerHTML) {
+      //       console.log(item);
+      //       item.style.backgroundColor = "red";
+      //       item.style.color = "white";
+      //       item.innerHTML = search;
+      //     }
+      //   }
+      // }
+
+      function findStudent() {
+        let searchName = document.getElementById("search").value;
+        let searchPos = -1;
+        for (let i = 0; i < STU_CNT; i++) {
+          if (scores[i].name == searchName) {
+            searchPos = i;
+          }
+        }
+
+        if (searchPos !== -1) {
+          document.getElementsByClassName("stu")[searchPos].style.backgroundColor = "red";
+        } else {
+          window.alert("그런 학생은 없습니다!");
+        }
+      }
+
+      function Student(name, kor, eng, math, total, avg, grade) {
+        // 생성자 함수 만들기
+        this.name = name;
+        this.kor = kor;
+        this.eng = eng;
+        this.math = math;
+        this.total = this.kor + this.eng + this.math;
+        this.avg = (this.total / 3).toFixed(0);
+
+        switch (Math.floor(this.avg / 10)) {
+          case 10:
+          case 9:
+            this.grade = "A";
+            break;
+          case 8:
+            this.grade = "B";
+            break;
+          case 7:
+            this.grade = "C";
+            break;
+          case 6:
+            this.grade = "D";
+            break;
+          default:
+            this.grade = "F";
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: Arial;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      div.example input[type="text"] {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+      }
+
+      div.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #212529;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+      }
+
+      div.example button:hover {
+        background: #2f3235;
+      }
+
+      div.example::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <h2>성적을 입력하세요.</h2>
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th>이름</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" class="stuName" /></td>
+            <td><input type="text" class="kor" /></td>
+            <td><input type="text" class="eng" /></td>
+            <td><input type="text" class="math" /></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="stuName" /></td>
+            <td><input type="text" class="kor" /></td>
+            <td><input type="text" class="eng" /></td>
+            <td><input type="text" class="math" /></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="stuName" /></td>
+            <td><input type="text" class="kor" /></td>
+            <td><input type="text" class="eng" /></td>
+            <td><input type="text" class="math" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <input type="button" value="성적처리" class="btn btn-outline-dark" onclick="scoreProcess()" />
+      <hr / >
+      <div id="table"></div>
+      <!-- 검색창 -->
+
+      <div id="searchStu" style="display: none">
+        <div class="example" action="/action_page.php" style="margin: auto; max-width: 300px">
+          <input type="text" placeholder="학생이름 검색.." id="search" />
+          <button type="button" onclick="findStudent()"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
