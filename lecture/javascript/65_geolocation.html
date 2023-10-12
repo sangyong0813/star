@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=49df1a683c8428db37c3a1035538cbfb"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>navigator 객체의 geolocation를 이용해서 위치 정보 얻기</title>
+    <script>
+      function getLocation() {
+        if (!navigator.geolocation) {
+          document.getElementById("output").innerHTML =
+            "이 브라우저는 위치정보를 지원하지 않습니다.";
+        } else {
+          navigator.geolocation.getCurrentPosition(showPosition, outputError);
+        }
+
+        function showPosition(pos) {
+          console.log(pos);
+          console.log(pos.coords);
+          console.log(pos.coords.latitude);
+          console.log(pos.coords.longitude);
+          let lat = pos.coords.latitude;
+          let lon = pos.coords.longitude;
+          console.log(lat, lon);
+          let timestamp = new Date(pos.timestamp);
+          console.log(timestamp);
+
+          document.getElementById(
+            "output"
+          ).innerHTML = `위도 : ${lat}, 경고 : ${lon}, 시간 : ${timestamp.toLocaleString()}`;
+
+          var container = document.getElementById("map");
+          var options = {
+            center: new kakao.maps.LatLng(lat, lon),
+            level: 3,
+          };
+
+          var map = new kakao.maps.Map(container, options);
+          var markerPosition = new kakao.maps.LatLng(lat, lon);
+          map.setDraggable(false);
+          map.setZoomable(false);
+          // 마커를 생성합니다
+          var marker = new kakao.maps.Marker({
+            position: markerPosition,
+          });
+
+          // 마커가 지도 위에 표시되도록 설정합니다
+          marker.setMap(map);
+        }
+
+        function outputError() {}
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="getLocation();">Try</button>
+    <div id="output"></div>
+    <div id="map" style="width: 300px; height: 300px"></div>
+  </body>
+</html>

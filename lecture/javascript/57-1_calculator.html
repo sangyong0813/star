@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/863fba2850.js" crossorigin="anonymous"></script>
+
+    <title>계산기</title>
+    <script>
+      // let data = 0;
+      // function plus() {
+      //   data += 1;
+      //   document.getElementById("result").innerHTML = data;
+      // }
+      // function minus() {
+      //   data -= 1;
+      //   document.getElementById("result").innerHTML = data;
+      // }
+      // function multiply() {
+      //   data = data * 2;
+      //   document.getElementById("result").innerHTML = data;
+      // }
+
+      // function divide() {
+      //   data = data / 2;
+      //   document.getElementById("result").innerHTML = data;
+      // }
+      // function reset() {
+      //   data = 0;
+      //   document.getElementById("result").innerHTML = data;
+      // }
+
+      function display(val) {
+        document.getElementById("result").innerHTML += val;
+      }
+
+      function calc() {
+        let exp = document.getElementById("result").innerHTML;
+        console.log(exp);
+        let result = eval(exp);
+        console.log(result);
+        document.getElementById("result").innerHTML = result;
+      }
+
+      function cls() {
+        document.getElementById("result").innerHTML = "";
+      }
+    </script>
+    <style>
+      table,
+      tr,
+      td {
+        border: 2px solid black;
+        padding: 6px 6px;
+        text-align: center;
+      }
+      td {
+        width: 40px;
+        height: 40px;
+      }
+
+      #result {
+        border: 2px solid black;
+        height: 40px;
+        text-align: right;
+        font-size: 30px;
+        font-weight: bold;
+      }
+      input {
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <table>
+        <tr>
+          <td colspan="6"><div id="result"></div></td>
+        </tr>
+
+        <tr>
+          <td onclick="display(`+`);"><i class="fa-solid fa-plus fa-2xl"></i></td>
+          <td onclick="display(`-`);"><i class="fa-solid fa-minus fa-2xl"></i></td>
+          <td onclick="display(`*`);"><i class="fa-solid fa-xmark fa-2xl"></i></td>
+          <td onclick="display(`/`);"><i class="fa-solid fa-divide fa-2xl"></i></td>
+          <td onclick="cls();"><i class="fa-solid fa-eraser fa-2xl"></i></td>
+          <td rowspan="3" onclick="calc()"><i class="fa-solid fa-equals fa-2xl"></i></td>
+        </tr>
+        <tr>
+          <td onclick="display(1);">
+            <i class="fa-solid fa-1 fa-2xl"></i>
+          </td>
+          <td onclick="display(2);">
+            <i class="fa-solid fa-2 fa-2xl"></i>
+          </td>
+          <td onclick="display(3);"><i class="fa-solid fa-3 fa-2xl"></i></td>
+          <td onclick="display(4);"><i class="fa-solid fa-4 fa-2xl"></i></td>
+          <td onclick="display(5);"><i class="fa-solid fa-5 fa-2xl"></i></td>
+        </tr>
+        <tr>
+          <td onclick="display(6);"><i class="fa-solid fa-6 fa-2xl"></i></td>
+          <td onclick="display(7);"><i class="fa-solid fa-7 fa-2xl"></i></td>
+          <td onclick="display(8);"><i class="fa-solid fa-8 fa-2xl"></i></td>
+          <td onclick="display(9);"><i class="fa-solid fa-9 fa-2xl"></i></td>
+          <td onclick="display(0);"><i class="fa-solid fa-0 fa-2xl"></i></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

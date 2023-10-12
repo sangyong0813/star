@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigator 객체</title>
+    <script>
+      window.onload = function () {
+        let text = `appCodeName : ${navigator.appCodeName} <br/>`;
+        text += `appName : ${navigator.appName} <br/>`;
+        text += `appVersion : ${navigator.appVersion} <br/>`;
+        text += `platform : ${navigator.platform} <br/>`;
+        text += `userAgen : ${navigator.userAgent} <br />`;
+        document.getElementById("output").innerHTML = text;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="output"></div>
+  </body>
+</html>

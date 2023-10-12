@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://kit.fontawesome.com/863fba2850.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        let box1 = document.getElementById("box1");
+        box1.className = "bg-codet"; // 클래스 이름 부여
+        console.log(box1.classList); // 클래스 리스트 보기
+
+        let box2 = document.getElementById("box2");
+        console.log(box2.classList);
+
+        box2.classList.add("txt-darkgray", "box-border"); // 클래스 추가
+
+        box2.classList.remove("txt-darkgray"); // 클래스 제거
+
+        let list = document.getElementById("list");
+        list.onclick = function (e) {
+          console.log(e);
+          let target = e.target;
+          console.log(target);
+          target.classList.toggle("txt-red");
+        };
+        //  찜, 좋아요 기능 구현해보기
+        let heart = document.getElementById("heart");
+        heart.onclick = function (evt) {
+          let target = evt.target;
+          console.log(target.classList);
+          target.classList.toggle("fa-solid");
+        };
+      };
+    </script>
+    <style>
+      #box1 {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+      }
+
+      .box-border {
+        border: 2px solid slateblue;
+      }
+
+      .bg-codet {
+        background-color: cadetblue;
+      }
+
+      .bg-beige {
+        background-color: blanchedalmond;
+      }
+
+      .bg-coral {
+        background-color: lightcoral;
+      }
+
+      .txt-darkgray {
+        color: darkgray;
+      }
+
+      .txt-lightblue {
+        color: lightblue;
+      }
+
+      .txt-red {
+        color: darkred;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box1" class="box">2023</div>
+    <div id="box2" class="box bg-coral">10월</div>
+    <ul id="list">
+      <li>list1</li>
+      <li>list2</li>
+      <li>list3</li>
+    </ul>
+    <div><i class="fa-regular fa-heart" id="heart"></i></div>
+    <div></div>
+  </body>
+</html>

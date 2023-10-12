@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>모달(modal)창 띄우기</title>
+    <script>
+      function opneModal() {
+        document.getElementsByClassName("modal-content")[0].style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementsByClassName("modal-content")[0].style.display = "none";
+      }
+    </script>
+    <style>
+      .modal {
+        width: 100%;
+        height: 100%;
+        background-color: gray;
+      }
+
+      .modal-content {
+        width: 300px;
+        height: 300px;
+        border: 4px solid cadetblue;
+        position: absolute;
+        left: 300px;
+        top: 40px;
+        background-color: blanchedalmond;
+        display: none;
+        z-index: 10;
+      }
+      span {
+        border: 2px solid cadetblue;
+        background-color: cornflowerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myModal" class="modal">
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum sed sint vero iste? Nobis
+        excepturi id eos! Delectus eos vel suscipit ea, quis ad animi eius id quod illum ducimus.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt deserunt temporibus
+        tempora odio similique, corporis amet neque, impedit nobis quo nisi quibusdam aspernatur
+        debitis expedita accusamus mollitia a inventore laborum! Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Iusto autem dolorum eius, eum, doloremque accusamus temporibus
+        nihil nisi deleniti nam esse a quod repellat porro minima eveniet, voluptatum debitis
+        perspiciatis.
+      </div>
+      <div>
+        <button onclick="opneModal();">모달창 띄우기</button>
+      </div>
+      <div class="modal-content">
+        <!-- 모달창 -->
+        <p>공지사항</p>
+        <div class="content">
+          물류량이 급증하여 배송이 지연됨을 알려드립니다. 문제가 생기면 알려주세요...
+        </div>
+        <div class="closeArea">
+          <br />
+          <span onclick="closeModal()">닫기</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
