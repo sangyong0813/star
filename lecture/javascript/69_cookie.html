@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쿠키의 일반적으로 운용</title>
+    <script>
+      function saveCookie() {
+        // 쿠키 이름 = 값; expires=쿠키만료일;(domain = 도메인명; path=쿠키저장경로)
+        let myCookie = "";
+        let now = new Date();
+        now.setDate(now.getDate() + 1); // 1일 후에 만료되는 쿠키만료일
+        console.log(now.toUTCString());
+        myCookie = "myCook=ksy;expires=" + now.toUTCString() + ";";
+        document.cookie = myCookie; //쿠키 저장
+
+        let myCookie2 = "";
+        let now2 = new Date();
+        now2.setMinutes(now2.getMinutes() + 100);
+        console.log(now2.toUTCString());
+        myCookie2 = "myCook2=ksy2;expires=" + now2.toUTCString() + ";";
+        document.cookie = myCookie2; //쿠키2 저장
+
+        let myCookie3 = "";
+        let now3 = new Date();
+        now3.setDate(now3.getDate() + 100);
+        console.log(now3.toUTCString());
+        myCookie3 = "myCook3=ksy3;expires=" + now3.toUTCString() + ";";
+        document.cookie = myCookie3; //쿠키2 저장
+      }
+
+      function readCookie() {
+        let cook = document.cookie;
+        console.log(typeof cook);
+        console.log(cook);
+        // let cookArr = cook.split(";");
+        // console.log(cookArr[0].split("=")[1]);
+        // mycook쿠키의 값을 alert창으로 띄우기
+
+        // let cookArr = cook.split(";").join("=").replace(/\s/g, "").split("=");
+        let cookArr = cook.split(";");
+        console.log(cookArr);
+        let input = document.getElementById("searchCookieName").value;
+        console.log(input);
+        let isFind = false;
+        for (let i = 0; i < cookArr.length; i++) {
+          let cookName = cookArr[i].split("=")[0];
+          console.log(cookName);
+          if (cookName.trim() == input) {
+            isFind = true;
+            alert(`${cookArr[i].split("=")[1]}입니다.`);
+          }
+          // if (cookArr[i] == input) {
+          //   isFind = true;
+          //   window.alert(`${cookArr[i]} 값은 ${cookArr[i + 1]}입니다.`);
+          // }
+        }
+        if (!isFind) {
+          window.alert("그런 쿠기는 없습니다.");
+        }
+      }
+
+      function delCookie() {
+        //쿠키 삭제
+        // 삭제할 쿠키의 expires값을 현재날짜, 시간으로 재설정하여 다시 저장한다.(overwrite)
+
+        let input = document.getElementById("delCookieName").value;
+        console.log(input);
+        let now = new Date();
+        let cookie = input + "=;expires=" + now.toUTCString();
+        document.cookie = cookie;
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="쿠키저장" onclick="saveCookie();" />
+    <input type="text" id="searchCookieName" placeholder="쿠키이름" />
+    <input type="button" value="쿠키읽기" onclick="readCookie()" />
+    <input type="text" id="delCookieName" placeholder="삭제할 쿠키이름" />
+    <input type="button" value="쿠키삭제" onclick="delCookie()" />
+  </body>
+</html>

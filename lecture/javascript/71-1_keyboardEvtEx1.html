@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>키보드 관련 이벤트</title>
+    <script>
+      // 유저가 입력하는 글자의 수를 출력하기
+      //  ...자 입력중
+      function check(obj) {
+        document.getElementsByTagName("span")[0].innerHTML = obj.value.length;
+      }
+
+      // focus
+      // blur : focus를 잃었을 때
+      onload = function () {
+        let inputTag2 = document.getElementById("txt2");
+        inputTag2.addEventListener("focus", () => {
+          inputTag2.style.backgroundColor = "lightgreen";
+        });
+        inputTag2.addEventListener("blur", () => {
+          inputTag2.style.backgroundColor = "red";
+        });
+      };
+
+      // 작은 사진에 마우스를 올렸을 때 메인에 크게 보이게 하는 기능
+      // 간략한 내용에 마우스 올리면 자세하게 팝업 띄우기
+    </script>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="userInput" onkeyup="check(this);" />
+    </div>
+    <div><span></span>자 입력중...</div>
+    <hr />
+    <div>
+      <input type="text" id="txt2" />
+    </div>
+    <div>
+      <input type="text" id="txt3" />
+    </div>
+  </body>
+</html>

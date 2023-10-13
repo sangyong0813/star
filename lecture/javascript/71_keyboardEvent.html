@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>키보드 이벤트</title>
+  </head>
+  <body>
+    <input type="text" id="inputTxt" placeholder="문자를 입력하세여...." />
+    <script>
+      let userInput = document.getElementById("inputTxt");
+      userInput.addEventListener("keyup", (e) => checkEvent("keyup", e));
+      userInput.addEventListener("keydown", (e) => checkEvent("keydown", e));
+      userInput.addEventListener("keypress", (e) => checkEvent("keypress", e));
+
+      function checkEvent(myevt, e) {
+        console.log(
+          `myevent : ${myevt}, keycode : ${e.keyCode}, length : ${e.target.value.length} key : ${e.key}`
+        );
+      }
+    </script>
+  </body>
+</html>

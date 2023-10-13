@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/common.js"></script>
+    <title>하루동안 이 창 열지 않기</title>
+    <script>
+      window.onload = function () {
+        // notice라는 이름의 쿠키를 만든다.
+        // 체크를 한 경우 쿠키 값을 "Y"로 준다.
+        if (readCookie("notice") != "Y") {
+          window.open("70-1_sub.html", "sub", "top=300, left=20, width=400, height=300");
+        }
+      };
+      // };
+    </script>
+  </head>
+  <body>
+    <h1>Main</h1>
+  </body>
+</html>

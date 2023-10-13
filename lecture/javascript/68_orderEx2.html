@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onclick = function () {
+        let price = 20000;
+        let sideMenu = document.getElementsByClassName("checkbx");
+        // let sideMeun = document.querySelectorAll(".checkbx")
+        console.log(sideMenu);
+        let total = document.getElementById("total");
+        total.value = price + "원";
+
+        //  체크박스를 클릭할때 실행할 문장 처리
+        for (let i = 0; i < sideMenu.length; i++) {
+          sideMenu[i].onclick = function () {
+            // console.log(this);
+            console.log(this.checked);
+            if (this.checked == true) {
+              console.log(this.value);
+              price += parseInt(this.value);
+              total.value = price + "원";
+            } else {
+              price -= parseInt(this.value);
+              total.value = price + "원";
+            }
+          };
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <fieldset>
+      <legend>추가메뉴</legend>
+      <input type="checkbox" class="checkbx" value="1000" /> 베이컨
+      <input type="checkbox" class="checkbx" value="2000" /> 양상추
+      <input type="checkbox" class="checkbx" value="3000" /> 치즈
+      <input type="checkbox" class="checkbx" value="4000" /> 피클
+    </fieldset>
+    <fieldset>
+      <legend>주문</legend>
+      <input type="button" id="total" />
+    </fieldset>
+  </body>
+</html>

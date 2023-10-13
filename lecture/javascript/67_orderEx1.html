@@ -7,12 +7,35 @@
     <script>
       // 배민 주문 페이지 만들기
       // 체크박스를 누르면 담기 부분에 가격이 추가
-      
+      let price = 31000;
+      window.onload = function () {
+        document.getElementById("orderButton").innerHTML = `${price}원 담기`;
+      };
+      function put(a, b) {
+        let checkOnOff = document.getElementsByClassName("on")[b];
+        if (checkOnOff.checked == true) {
+          price += a;
+          document.getElementById("orderButton").innerHTML = `${price}원 담기`;
+        } else {
+          price -= a;
+          document.getElementById("orderButton").innerHTML = `${price}원 담기`;
+        }
+      }
+      function done() {
+        window.alert(`${price}원을 결제하였습니다.`);
+      }
     </script>
+    <style>
+      img {
+        width: 400px;
+        height: 200px;
+      }
+    </style>
   </head>
   <body>
-    <div>
+    <div id="container">
       <div id="menuTitle">
+        <div><img src="pic/porkfeet.jpg" /></div>
         <h1>족발</h1>
         <div id="mainPrice">
           <h3>가격</h3>
@@ -21,20 +44,34 @@
       </div>
       <div id="sideMenu">
         <ul>
-          <li><input type="checkbox" />음료수 500ml추가 +1,000원</li>
-          <li><input type="checkbox" />콜라 1.25L 추가 +3,000원</li>
-          <li><input type="checkbox" />쟁반국수 추가 +8,000원</li>
-          <li><input type="checkbox" />보쌈김치 추가 +7,000원</li>
-          <li><input type="checkbox" />보삼속김치 추가 +1,000원</li>
-          <li><input type="checkbox" />동치미 추가 +1,000원</li>
-          <li><input type="checkbox" />겨자 추가 +1,000원</li>
-          <li><input type="checkbox" />야채셋트 추가 +1,000원</li>
-          <li><input type="checkbox" />매운소스 추가 +2,000원</li>
+          <li>
+            <input type="checkbox" class="on" onclick="put(1000, 0)" />음료수 500ml추가 +1,000원
+          </li>
+          <li>
+            <input type="checkbox" class="on" onclick="put(3000, 1)" />콜라 1.25L 추가 +3,000원
+          </li>
+          <li>
+            <input type="checkbox" class="on" onchange="put(8000, 2)" />쟁반국수 추가 +8,000원
+          </li>
+          <li>
+            <input type="checkbox" class="on" onchange="put(7000, 3)" />보쌈김치 추가 +7,000원
+          </li>
+          <li>
+            <input type="checkbox" class="on" onchange="put(1000, 4)" />보삼속김치 추가 +1,000원
+          </li>
+          <li><input type="checkbox" class="on" onchange="put(1000, 5)" />동치미 추가 +1,000원</li>
+          <li><input type="checkbox" class="on" onchange="put(1000, 6)" />겨자 추가 +1,000원</li>
+          <li>
+            <input type="checkbox" class="on" onchange="put(1000, 7)" />야채셋트 추가 +1,000원
+          </li>
+          <li>
+            <input type="checkbox" class="on" onchange="put(2000, 8)" />매운소스 추가 +2,000원
+          </li>
         </ul>
       </div>
       <div id="orderTab">
         <span>베달최소주문금액 25,000원</span>
-        <input type="button" value="담기" />
+        <button id="orderButton" onclick="done();">담기</button>
       </div>
     </div>
   </body>
