@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>jquery의 each 함수</title>
+    <script>
+      // 자바스크립트의 forEach() 같으나 활용도는 높다
+      let ar = [3, 5, 7, 8, 9, 10];
+
+      for (let i = 0; i < ar.length; i++) {
+        console.log(ar[i]);
+      }
+
+      // document.write("<ul>");
+      // $.each(ar, function (i, e) {
+      //   // i : index, e : value(요소값)
+      //   console.log(`${i}번째 요소 : ${e}`);
+      //   document.write(`<li>${i}번째 요소 : ${e}</li>`);
+      // });
+      // document.write("</ul>");
+
+      //
+      $(function () {
+        $("li").each(function (i, e) {
+          console.log(i, e);
+          $(this).css("color", "red");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>0번째 li</li>
+      <li>1번째 li</li>
+      <li>2번째 li</li>
+      <li>3번째 li</li>
+      <li>4번째 li</li>
+      <li>5번째 li</li>
+    </ul>
+  </body>
+</html>

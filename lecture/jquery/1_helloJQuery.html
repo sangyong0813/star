@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <title>Hello, jQuery</title>
+    <script>
+      // document.getElementsByTagName("h1")[0].style.color = "red";
+      // window.onload = function() {}
+      $(document).ready(function () {
+        $("h1").css("color", "red");
+        $("h2").eq(0).css("color", "blue");
+        $("h2").eq(1).css("color", "green");
+
+        $("div").click(function () {
+          $(this).html("참 쉽쥬~~~");
+        });
+
+        $(".small").mouseover(function () {
+          $(".big").show("slow", function () {
+            // alert("나타났쥬~");
+          }); // slow | fast | 2000 milliseconds
+        });
+
+        $(".small").mouseout(function () {
+          $(".big").hide("slow");
+        });
+      });
+
+      function justDo(obj) {
+        obj.innerHTML = "이렇게 바껴요오~~";
+      }
+
+      function disp() {
+        document.getElementsByClassName("big")[0].style.display = "block";
+      }
+
+      function hide() {
+        document.getElementsByClassName("big")[0].style.display = "none";
+      }
+    </script>
+    <style>
+      .big {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>hello, jQuery</h1>
+    <h2>첫번째 h2</h2>
+    <h2>두번째 h2</h2>
+    <!-- <div onclick="justDo(this)">
+      jQuery는 자바스크립트 코딩을 좀더 빠르고편하게 사용할 수 있도록 하는 라이브러리입니다.
+    </div> -->
+    <div>
+      jQuery는 자바스크립트 코딩을 좀더 빠르고편하게 사용할 수 있도록 하는 라이브러리입니다.
+    </div>
+
+    <!-- <div>
+      <img src="pic/cutlet.jpg" width="25%" onmouseover="disp();" onmouseout="hide();" />
+    </div>
+
+    <div>
+      <img src="pic/cutlet.jpg" class="big" width="50%" />
+    </div> -->
+
+    <div>
+      <img src="pic/cutlet.jpg" class="small" width="25%" />
+    </div>
+
+    <div>
+      <img src="pic/cutlet.jpg" class="big" width="50%" />
+    </div>
+  </body>
+</html>

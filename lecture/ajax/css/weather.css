@@ -1,0 +1,60 @@
+#container1 {
+  border: 1px solid black;
+  border-radius: 5px 5px;
+  background-color: lightblue;
+}
+#list1 {
+  border: 1px solid black;
+}
+img {
+  width: 50px;
+}
+.selectUnits {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.selectUnits [type="radio"] {
+  opacity: 0;
+  margin-right: 5px;
+}
+
+.selectUnits [type="radio"]:checked + img {
+  outline: 2px solid black;
+  border-radius: 50px 50px;
+  background-color: azure;
+}
+
+label {
+  margin-right: 10px;
+}
+
+.weatherInfo__weather {
+  font-size: 20px;
+}
+
+.controller {
+  display: flex;
+}
+
+.contents {
+  margin-bottom: 10px;
+}
+
+#title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#map {
+  margin-bottom: 15px;
+  border: 1px solid black;
+  border-radius: 5px 5px;
+}
+
+#selectCity {
+  border: 1px solid black;
+  font-weight: bold;
+}

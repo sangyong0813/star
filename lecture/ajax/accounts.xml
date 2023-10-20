@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<accounts>
+<account>
+  <owner>홍길동</owner>
+  <accNum>111-023-04-56789 </accNum>
+  <balance>500</balance>
+  <name>직장인 비과세 예금</name>
+  <bankName>우리은행</bankName>
+</account>
+<account>
+  <owner>둘리</owner>
+  <accNum>1111-023-04-12345 </accNum>
+  <balance>1500</balance>
+  <name>직장인 비과세 예금</name>
+  <bankName>우리은행</bankName>
+</account>
+</accounts>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>비동기 통신으로 XML 데이터 얻어오기</title>
+    <script>
+      function txtLoad() {
+        $.ajax({
+          url: "http://goott351.cafe24.com/lsy/accounts.json", //데이터가 송수신될 서버의 주소
+          type: "GET", //통신 방식 (GET, POST, PUT ,DELETE)
+          dataType: "json", // 수신받을 데이터 타입 (MINE TYPE)
+          success: function (data) {
+            //  통신이 성공하면 수행할 함수
+            // $("#output").html(data);
+            console.log(data);
+            parsingJSON(data);
+          },
+          error: function () {},
+          complete: function () {},
+        });
+      }
+      function parsingJSON(json) {
+        let output =
+          "<table border='1'><tr> <td>예금주</td> <td>계좌번호</td> <td>잔액</td><td>통장명</td><td>은행명</td></tr>";
+        $.each(json, function (i) {
+          output += `<tr><td>${json[i].owner}</td>`;
+          output += `<td>${json[i].accNum}</td>`;
+          output += `<td>${json[i].balance}</td>`;
+          output += `<td>${json[i].name}</td>`;
+          output += `<td>${json[i].bankName}</td>`;
+          output += "</tr>";
+        });
+        output += "</table>";
+        $("#output").html(output);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="로딩" onclick="txtLoad()" />
+    <div id="output"></div>
+  </body>
+</html>

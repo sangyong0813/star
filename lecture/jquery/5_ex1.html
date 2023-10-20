@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+      //다만든후 json값 출력 전송버튼으로
+      //clone(true|false)
+      $(function () {
+        let json = [];
+        new prodData("");
+        function prodData(name, qty, price) {
+          this.name = name;
+          this.qty = qty;
+          this.price = price;
+        }
+
+        $("table").on("click", ".addBtn", function () {
+          let nextTxt = $(this).parent().parent().next().find("input[name=prodName]").val();
+          if (nextTxt !== "") {
+            let name = $(this).parent().parent().find("input[name=prodName]").val();
+            let qty = $(this).parent().parent().find("input[name=prodQty]").val();
+            let price = $(this).parent().parent().find("input[name=prodPrice]").val();
+            json.push(new prodData(name, qty, price));
+          }
+
+          $(this)
+            .parent()
+            .parent()
+            .after(
+              `<tr><td><input type="text" name="prodName"/></td>
+                  <td><input type="text" name="prodQty"/></td>
+                  <td><input type="text" name="prodPrice"/></td>
+                  <td><button class="addBtn">➕</button></td>
+                  <td><button class="NewRemBtn">➖</button></td></tr>`
+            );
+        });
+        $("table").on("click", ".remBtn", function () {
+          let search = -1;
+          for (let i = 0; i < json.length; i++) {
+            if (json[i].name == $(this).parent().parent().find("input[name=prodName]").val()) {
+              search = i;
+            }
+          }
+          if (search !== -1) {
+            json.splice(search, 1);
+          }
+          $(this).parent().parent().find("input[name=prodName]").val("");
+          $(this).parent().parent().find("input[name=prodQty]").val("");
+          $(this).parent().parent().find("input[name=prodPrice]").val("");
+        });
+
+        $("table").on("click", ".NewRemBtn", function () {
+          let search = -1;
+          for (let i = 0; i < json.length; i++) {
+            if (json[i].name == $(this).parent().parent().find("input[name=prodName]").val()) {
+              search = i;
+            }
+          }
+          if (search !== -1) {
+            json.splice(search, 1);
+          }
+
+          $(this).parent().parent().remove();
+          console.log(json);
+        });
+
+        $(".show").on("click", function () {
+          $("#jsonShow").html(JSON.stringify(json));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <td>상품명</td>
+        <td>수량</td>
+        <td>가격</td>
+        <td>추가</td>
+        <td>삭제</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="prodName" /></td>
+        <td><input type="text" name="prodQty" /></td>
+        <td><input type="text" name="prodPrice" /></td>
+        <td><button class="addBtn">➕</button></td>
+        <td><button class="remBtn">➖</button></td>
+      </tr>
+    </table>
+    <button class="show">전송</button>
+    <div id="jsonShow"></div>
+  </body>
+</html>

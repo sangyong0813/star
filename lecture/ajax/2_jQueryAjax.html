@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <title>jQuery를 이용한 비동기 통신 예제</title>
+    <script>
+      function txtLoad() {
+        $.ajax({
+          url: "http://goott351.cafe24.com/lsy/hello.txt", //데이터가 송수신될 서버의 주소
+          type: "GET", //통신 방식 (GET, POST, PUT ,DELETE)
+          dataType: "text", // 수신받을 데이터 타입 (MINE TYPE)
+          success: function (data) {
+            //  통신이 성공하면 수행할 함수
+            $("#output").html(data);
+            console.log("ajax success");
+          },
+          error: function () {},
+          complete: function () {},
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="로딩" onclick="txtLoad()" />
+    <div id="output"></div>
+  </body>
+</html>

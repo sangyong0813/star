@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/863fba2850.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>MBN 뉴스를 기사를 xml로 받아와 parsing 해보자</title>
+    <script>
+      $(function () {
+        transData();
+
+        // 기사 검색 기능 구현
+        let userInput = document.getElementById("searchBar");
+        userInput.addEventListener("keyup", (evt) => checkEvent(evt, userInput.value));
+        function checkEvent(evt, searchWord) {
+          if (evt.keyCode == 13) {
+            console.log(searchWord);
+            findNews(searchWord);
+          }
+        }
+      });
+
+      function transData() {
+        $.ajax({
+          url: "https://mbn.co.kr/rss/sports/", // 데이터가 송수신될 서버의 주소
+          type: "GET", // 통신 방식 (GET, POST, PUT, DELETE)
+          datatype: "xml", // 수신 받을 데이터 타입 (MINE TYPE)
+          success: function (data) {
+            // 통신이 성공하면 수행할 함수
+            console.log(data);
+            parsingXML(data);
+          },
+          error: function () {},
+          complete: function () {},
+        });
+      }
+
+      function parsingXML(xml) {
+        let items = xml.getElementsByTagName("item");
+        let output = "";
+        $.each(items, function (i, item) {
+          let title = $(item).children().eq(0).html();
+          title = title.replace("<![CDATA[", "");
+          title = title.replace("]]>", "");
+          // .split("CDATA")[1]
+          // .replace(/\[|\]|\>/g, "");
+          let main = $(item).children().eq(3).html();
+          main = main.replace("<![CDATA[", "");
+          main = main.replace("]]>", "");
+          // .split("CDATA")[1]
+          // .replace(/\[|\]|\>$/g, "");
+          let date = new Date($(item).children().eq(4).html());
+          let link = $(item).children().eq(2).html();
+          if (i < 1) {
+            output += `<div class="panel panel-primary"><div class="panel-heading"><h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href= '#collapse${
+                i + 1
+              }'" name="title">${title}</a></h4></div></a>`;
+            output += `<div id="collapse${
+              i + 1
+            }" class="panel-collapse collapse in"><div class="panel-body"> `;
+            output += `${main}</div><div id="footer"><span>${date.toLocaleString()}</span> <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal" onclick="modalLink('${link}')">
+        자세히보기
+      </button></div></div></div>`;
+          } else {
+            output += `<div class="panel panel-primary"><div class="panel-heading"><h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse${
+                i + 1
+              }" name="title">${title}</a></h4></div>`;
+            output += `<div id="collapse${
+              i + 1
+            }" class="panel-collapse collapse"><div class="panel-body"> `;
+            output += `${main}</div><div id="footer"><span>${date.toLocaleString()}</span> <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal" onclick="modalLink('${link}')">
+        자세히보기
+      </button></div></div></div>`;
+          }
+        });
+        $("#accordion").html(output);
+      }
+      // 모달(뉴스 자세히 보기) 기능
+      function modalLink(link) {
+        console.log(link);
+        document.getElementById("modalFrame").src = link;
+        // $("#modalFrame").src(link);
+      }
+
+      // 검색 기능
+      function findNews(searchWord) {
+        let findResult = true;
+        let titles = document.getElementsByName("title");
+        // console.log(typeof searchWord);
+        $.each(titles, function (i) {
+          if (titles[i].innerHTML.match(searchWord) !== null) {
+            // console.log(titles[i]);
+            $(titles[i])
+              .parent()
+              .parent()
+              .next()
+              .attr("class", "panel-collapse collapse in")
+              .css("backgroundColor", "lightgreen");
+            titles[i].focus();
+            findResult = false;
+          } else {
+            $(titles[i])
+              .parent()
+              .parent()
+              .next()
+              .attr("class", "panel-collapse collapse")
+              .css("backgroundColor", "white");
+          }
+        });
+        if (findResult) {
+          $("#noFind").css("display", "block");
+        } else {
+          $("#noFind").css("display", "none");
+        }
+      }
+    </script>
+    <style>
+      .bg-1 {
+        background-color: #337ab7;
+        border: 1px solid white;
+        border-radius: 5px 5px;
+        color: #ffffff;
+      }
+
+      #footer {
+        background-color: #70b2ec;
+        color: white;
+        padding-left: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+
+      /* #searchBar {
+        font-size: 15px;
+        color: white;
+        background-color: aliceblue;
+      } */
+
+      button {
+        margin-left: 10px;
+      }
+      a {
+        display: block;
+        width: 100%;
+      }
+
+      .input {
+        position: relative;
+
+        font-size: 1.5em;
+
+        background: linear-gradient(21deg, #10abff, #1beabd);
+
+        padding: 3px;
+
+        display: inline-block;
+
+        border-radius: 9999em;
+        color: black;
+
+        *:not(span) {
+          position: relative;
+          display: inherit;
+          border-radius: inherit;
+          margin: 0;
+          border: none;
+          outline: none;
+          padding: 0 0.325em;
+          z-index: 1;
+
+          &:focus + span {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        span {
+          transform: scale(0.993, 0.94);
+          transition: transform 0.5s, opacity 0.25s;
+          opacity: 0;
+
+          position: absolute;
+          z-index: 0;
+          margin: 4px;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: inherit;
+          pointer-events: none;
+
+          box-shadow: inset 0 0 0 3px #fff, 0 0 0 4px #fff, 3px -3px 30px #1beabd,
+            -3px 3px 30px #10abff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-fluid bg-1 text-center">
+        <h3 class="margin">MBN 뉴스</h3>
+        <h3>스포츠</h3>
+        <div id="search">
+          <span class="input">
+            <input type="text" placeholder="기사 검색" id="searchBar" />
+            <span></span>
+          </span>
+          <p id="noFind" style="color: red; display: none">찾는 값이 없습니다!</p>
+          <!-- <button onclick="findNews()"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button> -->
+        </div>
+      </div>
+
+      <div class="panel-group" id="accordion"></div>
+      <!--  -->
+
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog" style="width: 100%; height: 100%">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">자세히보기</h4>
+            </div>
+            <div class="modal-body">
+              <iframe src="#" width="100%" height="600" id="modalFrame"></iframe>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

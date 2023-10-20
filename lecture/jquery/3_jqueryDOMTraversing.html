@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+      $(function () {
+        console.log($(".tr td").eq(0).html());
+
+        // 1 -> 4로 접근
+        console.log($(".tr td").eq(0).parent().next().children().eq(0).html());
+
+        // 3번에 접근
+        console.log($(".tr td").eq(0).next().next().html());
+        console.log($(".tr").eq(0).children().eq(0).next().next().html());
+        console.log($("#td5").prev().html());
+
+        // 9번에 접근
+        console.log($("#td5").parent().next().children().eq(2).html());
+
+        console.log($(".tr td").parent()); // 부모요소만
+        console.log($(".tr td").parents()); // 맨위에 요소까지
+        console.log($(".tr td").parentsUntil("body")); // "body"전까지!
+
+        // 1번의 배경색을 노란색으로 바꾸기
+        $(".tr td").eq(0).css("background-color", "yellow");
+
+        // 테이블의 width : 200px
+        // $("table").css("width", "200px");
+        $("#td9").parentsUntil("body").css("width", "200px");
+
+        // 5번의 5글자 앞에 a라는 글자를 진하게 넣기
+        // $("<b>a</b>").insertBefore($("#td5"));   //바로 앞에 요소추가
+        // $("#td5").html("<b>a</b>5"); // td5에 추가
+        $("#td5").prepend("<b>a</b>");
+
+        // 9번의 배경색을 파란색으로 바꾸고, 글씨색은 하얀색으로 바꾸기.
+        $("#td9").css({ "background-color": "blue", color: "white" });
+
+        // 8번을 100으로 바꾸기
+        $("#td9").prev().text("100");
+      });
+    </script>
+  </head>
+  <body>
+    <table border="1">
+      <tr class="tr">
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr class="tr">
+        <td>4</td>
+        <td id="td5">5</td>
+        <td>6</td>
+      </tr>
+      <tr class="tr">
+        <td>7</td>
+        <td>8</td>
+        <td id="td9">9</td>
+      </tr>
+    </table>
+  </body>
+</html>

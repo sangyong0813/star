@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- weather.css 적용  -->
+    <link rel="stylesheet" href="css/weather.css" />
+    <!-- 부트스트랩5 css 적용 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- kakao map API 적용 -->
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=49df1a683c8428db37c3a1035538cbfb"
+    ></script>
+    <!-- 부트스트랩5 css적용 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery 적용 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <title>날씨</title>
+    <script>
+      // 기본 url 설정 (날씨 API) - 전역변수
+      let baseurl =
+        "https://api.openweathermap.org/data/2.5/weather?&appid=67221da610778146a072cd888ff8c530";
+
+      //  window.onload 함수
+      $(function () {
+        // getWeatherData 기본 설정 - 창키면 서울, metric이 기본으로
+        getWeatherData("seoul", "metric");
+        // 도시 설정 함수 (select창이 바뀌면 동작)
+        $("#selectCity").change(function () {
+          let radios = document.getElementsByName("unit"); // input=radio를 name으로 불러옴
+          let unit = "";
+          unit = $("input[name='unit']:checked").val(); //jQuery를 이용하여 radio체크 내용을 넣어줌
+
+          getWeatherData($(this).val(), unit);
+        });
+
+        // radio창이 바뀌면 동작
+        $("input[name='unit']").change(function () {
+          getWeatherData($("#selectCity").val(), $(this).val());
+        });
+      });
+
+      // JSON (날씨api)를 불러오는 기능
+      function getWeatherData(cityName, units) {
+        // 위에 지정해준(baseurl) 내용에 도시이름과 온도표현 방식을 추가해줌
+        // 위 window.onload에서 도시이름과 온도표현을 지정하여 넘겨받음
+        let url = baseurl + `&q=${cityName}&units=${units}`;
+
+        // ajax로 받아오기
+        $.ajax({
+          url: url, // 데이터가 송수신될 서버의 주소
+          type: "GET", // 통신 방식 (GET, POST, PUT, DELETE)
+          datatype: "json", // 수신 받을 데이터 타입 (MINE TYPE)
+          success: function (data) {
+            // json 불러오기를 성공하면 아래로 dataf를 파싱함(pasingJSON함수실행)
+            parsingJSON(data);
+          },
+          error: function () {}, // json을 불러오다 error가 났을때 실행하는 함수(아직 사용x)
+          complete: function () {}, // json불러오기가 끝났을때 함수(아직 사용x)
+        });
+      }
+
+      // 위에 ajax로 json을 성공적으로 불러왔을때 실행되는 함수
+      function parsingJSON(json) {
+        let mainWeather = json.main;
+        let cityName = json.name;
+        //json에서 불러온 도시이름을 html화면에 표시(div창)
+        $("#cityName").html(cityName);
+
+        let description = json.weather[0].description;
+        let weatherIcon = json.weather[0].icon;
+        let outputDescription = `<img src = "https://openweathermap.org/img/wn/${weatherIcon}@4x.png"/>`;
+        //json에서 불러온 정보를 리스트에 표시(ul li 창)
+        $(".list-group").children().eq(0).html(`${description}${outputDescription}`);
+        $(".list-group").children().eq(1).html(`체감온도 : ${mainWeather.feels_like} `);
+        $(".list-group").children().eq(2).html(`습도 : ${mainWeather.humidity} %`);
+        $(".list-group").children().eq(3).html(`기압 : ${mainWeather.pressure} hPa`);
+        $(".list-group").children().eq(4).html(`최고기온 : ${mainWeather.temp_min} `);
+        $(".list-group").children().eq(5).html(`최저기온 : ${mainWeather.temp_max} `);
+
+        // 지도에 표시할 정보
+        let lat = json.coord.lat;
+        let lon = json.coord.lon;
+        // 지도에 표시할 아이콘 경로로 지정
+        let weatherIconUrl = `https://openweathermap.org/img/wn/${weatherIcon}@4x.png`;
+        // 카카오맵에 표시하는 함수(경도,위도,표시아이콘)
+        outputMap(lat, lon, weatherIconUrl);
+      }
+
+      // 카카오 지도 실행 함수
+      function outputMap(lat, lon, weatherIconUrl) {
+        var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+          mapOption = {
+            center: new kakao.maps.LatLng(lat, lon), // 지도의 중심좌표
+            level: 4, // 지도의 확대 레벨
+          };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+        var imageSrc = weatherIconUrl, // 마커이미지의 주소입니다
+          imageSize = new kakao.maps.Size(70, 70), // 마커이미지의 크기입니다
+          imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+        var imageSrc2 = "pic/pin.png", // 마커이미지2의 주소입니다
+          imageSize2 = new kakao.maps.Size(70, 70), // 마커이미지2의 크기입니다
+          imageOption2 = { offset: new kakao.maps.Point(27, 66) }; // 마커이미지2의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+        // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+          markerPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치입니다
+        // 마커의 이미지2정보를 가지고 있는 마커이미지를 생성합니다
+        var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize2, imageOption2),
+          markerPosition2 = new kakao.maps.LatLng(lat, lon); // 마커2가 표시될 위치입니다
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+          position: markerPosition,
+          image: markerImage, // 마커이미지 설정.
+        });
+        // 마커2를 생성합니다.
+        var marker2 = new kakao.maps.Marker({
+          position: markerPosition2,
+          image: markerImage2, // 마커2이미지 설정.
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다.
+        marker2.setMap(map);
+        // 마커2가 지도 위에 표시되도록 설정합니다.
+        marker.setMap(map);
+      }
+    </script>
+  </head>
+  <body>
+    <!--  전체 부분 시작 -->
+    <div class="container mt-3" id="container1">
+      <!-- // select 부분 시작 -->
+      <div class="controller">
+        <select id="selectCity" class="form-select mt-3">
+          <option checked value="seoul">서울</option>
+          <option value="incheon">인천</option>
+          <option value="gwangju">광주</option>
+          <option value="busan">부산</option>
+          <option value="daejeon">대전</option>
+          <option value="jeju">제주</option>
+        </select>
+      </div>
+      <!-- // select 부분 끝 // radio 부분 시작 -->
+      <div class="selectUnits">
+        <label>
+          <input type="radio" name="unit" value="metric" checked /><img
+            src="pic/celsius.png"
+            alt=""
+        /></label>
+        <label
+          ><input type="radio" name="unit" value="imperial" /><img src="pic/kelvin.png" alt=""
+        /></label>
+        <label
+          ><input type="radio" name="unit" value="standard" /><img src="pic/fahrenheit.png" alt=""
+        /></label>
+      </div>
+      <!-- // radio 부분 끝 // 날씨 정보 제목 부분 시작 -->
+      <div>
+        <div id="title"><span id="cityName"></span>날씨 정보</div>
+        <!-- // 날씨 정보 제목 부분 끝 // 위(script)에서 넣어준 날씨 정보 부분 시작 -->
+        <div class="contents">
+          <div class="weatherInfo__weather"></div>
+          <div class="weatherInfo__mainWeatehr">
+            <ul class="list-group" id="list1">
+              <li class="list-group-item"></li>
+              <li class="list-group-item"></li>
+              <li class="list-group-item"></li>
+              <li class="list-group-item"></li>
+              <li class="list-group-item"></li>
+              <li class="list-group-item"></li>
+            </ul>
+          </div>
+        </div>
+        <!-- // 위(script)에서 넣어준 날씨 정보 부분 끝 -->
+      </div>
+      <!-- // kakao 맵 표시 시작 -->
+      <div id="map" style="width: 100%; height: 350px"></div>
+      <!-- // kakao 맵 표시 끝 -->
+    </div>
+    <!-- // 전체 부분 끝 -->
+  </body>
+</html>

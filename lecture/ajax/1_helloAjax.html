@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astnchronous method (using vanilla JS)</title>
+    <script>
+      // 로딩버튼을 누르면 서버에 있는 hello.txt 파일을 비동기 통신방식으로 얻어와
+      // div 영역에 내용을 출력해보자.
+      function txtLoad() {
+        let xhttp = new XMLHttpRequest(); //XHR 객체 (ajax객체) 생성
+        if (xhttp != null) {
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+              //통신이 성공(완료)되었다면
+              document.getElementById("output").innerHTML = this.responseText;
+            }
+          };
+        } else {
+          alert("웹 브라우저가 비동기 통신을 지원하지 않습니다.");
+        }
+
+        xhttp.open("get", "http://goott351.cafe24.com/lsy/hello.txt"); //요청
+        xhttp.send(); //통신 시작
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="로딩" onclick="txtLoad()" />
+    <div id="output"></div>
+  </body>
+</html>

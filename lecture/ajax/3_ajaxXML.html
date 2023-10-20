@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>비동기 통신으로 XML 데이터 얻어오기</title>
+    <script>
+      function txtLoad() {
+        $.ajax({
+          url: "http://goott351.cafe24.com/lsy/accounts.xml", // 데이터가 송수신될 서버의 주소
+          type: "GET", // 통신 방식 (GET, POST, PUT, DELETE)
+          datatype: "xml", // 수신 받을 데이터 타입 (MINE TYPE)
+          success: function (data) {
+            // 통신이 성공하면 수행할 함수
+            // $("#output").html(data);
+            console.log(data);
+            parsingXML(data);
+          },
+          error: function () {},
+          complete: function () {},
+        });
+      }
+
+      function parsingXML(xml) {
+        let accounts = xml.getElementsByTagName("account");
+        console.log(accounts);
+        let output =
+          "<table border='1'><tr> <td>예금주</td> <td>계좌번호</td> <td>잔액</td><td>통장명</td>            <td>은행명</td></tr>";
+        $.each(accounts, function (i, account) {
+          output += `<tr><td>${$(account).children().eq(0).html()}</td>`;
+          output += `<td>${$(account).children().eq(1).html()}</td>`;
+          output += `<td>${$(account).children().eq(2).html()}</td>`;
+          output += `<td>${$(account).children().eq(3).html()}</td>`;
+          output += `<td>${$(account).children().eq(4).html()}</td>`;
+          output += "</tr>";
+        });
+
+        output += "</table>";
+        $("#output").html(output);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="로딩" onclick="txtLoad();" />
+    <div id="output"></div>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+      //행을 추가하기
+      $(function () {
+        $("table").on("click", ".addBtn", function () {
+          let copyTr = $(this).parent().parent(); // 복사할 행을 copyTr에 할당
+          console.log(typeof copyTr);
+          let newTr = copyTr.clone();
+          clearContents($(newTr).children()); // 복사된 행의 input태그 안의 내용을 삭제
+          newTr.insertAfter(copyTr);
+        });
+
+        $("table").on("click", ".remBtn", function () {
+          if ($("tr").length > 2) {
+            $(this).parent().parent().remove();
+          } else {
+            alert("더 이상 삭제할 수 없습니다.");
+          }
+        });
+
+        function clearContents(tdArr) {
+          $.each(tdArr, function (index, item) {
+            $(item).children().val("");
+          });
+        }
+
+        $(".send").click(function () {
+          let data = new Array();
+
+          $("tr").each(function (i, e) {
+            let product = new Object();
+
+            if (i > 0) {
+              // 테이블의 헤드르 제외하고 값을 가져온다.
+              // let prodName = $(e).children().eq(0).children().eq(0).val();
+              // let prodQty = $(e).children().eq(1).children().eq(0).val();
+              // let prodPrice = $(e).children().eq(2).children().eq(0).val();
+              // console.log(prodName, prodQty, prodPrice);
+              // // 객체 속성에 값 부여
+              // product.prodName = prodName;
+              // product.prodQty = prodQty;
+              // product.prodPrice = prodPrice;
+              // console.log(product);
+
+              $(e)
+                .children()
+                .each(function (ind, inputTd) {
+                  if (ind < 3) {
+                    // 0, 1 ,2 번째 Td만
+                    console.log($(inputTd).children().attr("name"));
+                    product[$(inputTd).children().attr("name")] = $(inputTd).children().val();
+                  }
+                });
+
+              // 객체 배열에 추가
+              data.push(product);
+            }
+          });
+          console.log(data);
+          $("#json").html(JSON.stringify(data));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <td>상품명</td>
+        <td>수량</td>
+        <td>가격</td>
+        <td>추가</td>
+        <td>삭제</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="prodName" /></td>
+        <td><input type="text" name="prodQty" /></td>
+        <td><input type="text" name="prodPrice" /></td>
+        <td><button class="addBtn">➕</button></td>
+        <td><button class="remBtn">➖</button></td>
+      </tr>
+    </table>
+    <hr />
+    <div>
+      <button class="send">전송</button>
+    </div>
+    <div id="json"></div>
+  </body>
+</html>

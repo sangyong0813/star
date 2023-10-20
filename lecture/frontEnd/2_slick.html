@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+
+    <title>Document</title>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".center").slick({
+          dots: true,
+          infinite: true,
+          speed: 500,
+          fade: true,
+          cssEase: "linear",
+        });
+      });
+    </script>
+    <style>
+      img {
+        width: 600px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--     -->
+    <div style="padding: 300px 100px; background-color: cornflowerblue">
+      <div class="center">
+        <div><img src="pic/ev9.png" /></div>
+        <div><img src="pic/gv70.png" /></div>
+        <div><img src="pic/torres.png" /></div>
+        <!-- <div><img src="pic/kimchisoup.jpg" /></div>
+        <div><img src="pic/cutlet.jpg " /></div>
+        <div><img src="pic/gukbap.jpg " /></div> -->
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+  </body>
+</html>
